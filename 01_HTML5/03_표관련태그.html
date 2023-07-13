@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>표관련태그</title>
+        <style>
+            /* css 영역에서의 주석 */
+            thead {
+                background-color: magenta;
+                color: white;
+            }
+
+            #tt {
+                background-color: lightgray;
+            }
+
+            tfoot {
+                background-color: aquamarine;
+                color: cornflowerblue;
+            }
+
+            button {
+                background-color: rgb(25, 180, 100);
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            표 : 웹 문서에서 자료를 정리할 때 주로 사용
+                 행과 열로 이루어져 있고, 행과 열이 만나는 지점을 셀이라고 한다.
+            
+            표를 만드는 태그에는 <table>, <tr>, <th>, <td> 가 있다.
+
+            <table></table> : 기본적인 표를 생성해주는 태그
+            <tr></tr> : 표의 한 행을 나타내는 태그
+
+            <th></th> : 표의 제목 셀을 나타내는 태그 => 글자 굵게, 가운데 정렬
+            <td></td> : 표의 일반 셀을 나타내는 태그 
+
+            * 기본적인 구조 (3*2)
+            <table>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        -->
+        <h1>기본적인 표 만들기</h1>
+        <table border="1"> <!-- border 속성 : 표의 테두리의 두께 -->
+            
+            <!-- caption : 테이블의 제목을 추가하는 태그 -->
+            <caption><b>웹 브러우저의 종류</b></caption>
+            
+            <tr>
+                <th width="120" height="50">브라우저명</th>
+                <th width="80">제조사</th>
+                <th width="300">홈페이지</th>
+            </tr>
+            <tr>
+                <td>Internet Explorer</td>
+                <td>MS</td>
+                <td>http://www.microsoft.com</td>
+            </tr>
+            <tr>
+                <td>Chrome</td>
+                <td>Google</td>
+                <td>http://www.google.com</td>
+            </tr>
+            <tr>
+                <td>사파리</td>
+                <td>애플</td>
+                <td>http://www.apple.com</td>
+            </tr>
+
+        </table>
+
+        <figure>
+            <figcaption>테이블의 설명 또는 img의 설명을 표현할 때 주로 사용</figcaption>
+        </figure>
+
+        <hr>
+
+        <h1>표의 행과 열을 합치는 속성</h1>
+
+        <!--
+            셀(th, td) 태그의 속성을 이용해서 행 또는 열을 합칠 수 있음!
+
+            colspan="2" : 2개의 열을 합치기
+            rowspan="2" : 2개의 행을 합치기
+        -->
+
+        <h3>이력서</h3>
+        <table border="1">
+            <tr>
+                <td colspan="2" rowspan="2" width="130" height="130">사진</td>
+                <td width="80">이름</td>
+                <td width="200"></td>
+            </tr>
+            <tr>
+                <td width="70" height="50">연락처</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td width="70" height="50">주소</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td height="130">자기소개</td>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <h1>테이블 내에 구조 나누기</h1>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+
+            <tbody id="tt">
+                <tr>
+                    <td>차은우</td>
+                    <td>23</td>
+                    <td><button>서울</button></td>
+                </tr>
+                <tr>
+                    <td>주지훈</td>
+                    <td>30</td>
+                    <td><button>부산</button></td>
+                </tr>
+                <tr>
+                    <td>아이유</td>
+                    <td>22</td>
+                    <td><button>광주</button></td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th colspan="2">총인원</th>
+                    <td>3명</td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+
+        <br><br><br><br><br><br><br>
+    </body>
+
+
+
+
+
+</html>

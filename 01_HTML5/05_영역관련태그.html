@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>영역관련태그</title>
+</head>
+
+<body>
+    <!--
+        블럭요소    : 한 줄 단위로 영역을 차지함
+                      줄바꿈이 적용되어 이미 존재하는 태그의 다음줄에 영역이 잡힘
+                      (p, pre, 'div', ...)
+
+        인라인요소  : 딱 content(내용) 영역에 해당하는 부분만 차지하는 요소
+                      줄바꿈이 적용되지 않아 옆으로 영역이 잡힘
+                      (다음 줄로 넘기고자 한다면 직접 br 태그 작성해야함)
+                      (b, mark, s, img, 'span', ...)
+    -->               
+    <h1>영역 관련 태그</h1>
+
+    <h2>div 태그와 span 태그의 차이점1 : 줄바꿈 적용</h2>
+
+    <h3>div태그</h3>
+    <p>div 태그는 블럭요소로 한줄 단위로 영역 차지 (이미 존재하는 태그 다음줄에 영역이 잡힘)</p>
+
+    <div style="background-color: red;">첫번째 영역</div>
+    <div style="background-color: orange">두번째 영역</div>
+    <div style="background-color: yellow;">세번째 영역</div>
+
+    <h3>span 태그</h3>
+    <p>span 태그는 인라인 요소로 content 영역만 차지 (줄바꿈이 발생되지 않고 옆으로 영역이 잡힘)</p>
+    <span style="background-color: green;">첫번째 영역</span>
+    <span style="background-color: blue;">두번째 영역</span>
+    <span style="background-color: purple;">세번째 영역</span>
+
+    <hr>
+
+    <h2>div 태그와 span 태그의 차이점2 : 영역 지정 방식</h2>
+
+    <h3>div 태그 : 사각형 박스로 영역을 지정</h3>
+
+    <div style="background-color: aqua;">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus, perspiciatis iste! Perferendis, vel repellat quia corporis deserunt sequi cupiditate non veniam quibusdam, rerum nobis temporibus id quis. Harum, pariatur facilis.
+    </div>
+
+    <h3>span 태그 : 문장 단위로 영역을 지정</h3>
+
+    <span style="background-color: aqua;">
+        이름자 써 그러나 지나가는 청춘이 봅니다. 별 보고, 이름을 봅니다. <br>
+        책상을 별 강아지, 부끄러운 봅니다. <br>
+        지나고 까닭이요, 이제 이름자 이런 못 쓸쓸함과 잔디가 있습니다. 하나에 한 노루, 했던 불러 까닭입니다. <br>
+        사랑과 어머니, 패, 이름자 가을 위에도 내일 쉬이 있습니다. <br>
+        프랑시스 사랑과 그러나 별빛이 둘 책상을 하나에 어머님, 거외다. 가을 무성할 남은 풀이 내 있습니다.<br>
+        언덕 어머니, 한 노루, 잔디가 계십니다. 
+    </span>
+
+    <hr>
+
+    <h1>iframe</h1>
+    <p>웹 문서 안에 다른 웹 페이지를 추가하는 태그</p>
+    <iframe src="04_이미지및멀티미디어관련태그.html" width="600" height="1000" frameborder="0"></iframe>
+    <iframe width="698" height="393" src="https://www.youtube.com/embed/nDuCD1D92HY" title="[4K][무료저작권 No Copyright - 디지털액자] 기독교 | 바탕화면 | 하늘 | 구름 | 타임랩스 | 소니A99II" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!-- 동영상 우클릭 소스코드복사 -->
+
+</body>
+
+
+
+
+</html>
