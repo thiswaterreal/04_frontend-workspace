@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
     <style>
-        #ff1 {font-family: 궁서체;}
-        #ff2 {font-family: 고딕체;}
-        #ff3 {font-family: 티몬체, 궁서체;}
+        #ff1 {
+            font-family: 궁서체;
+        }
+
+        #ff2 {
+            font-family: 고딕체;
+        }
+
+        #ff3 {
+            font-family: 티몬체, 궁서체;
+        }
+
         #ff4 {
             font-size: 30px;
             font-family: 'Bagel Fat One', cursive;
         }
 
-        #fs1 {font-size: 30px;}
-        #fs2 {font-size: 2em;}
-        #fs3 {font-size: 150%;}
+        #fs1 {
+            font-size: 30px;
+        }
 
-        #fw1 {font-weight: bold;}
-        #fw2 {font-weight: 900;}     /*bolder*/
-        #fw3 {font-weight: lighter;} /*100*/
+        #fs2 {
+            font-size: 2em;
+        }
+
+        #fs3 {
+            font-size: 150%;
+        }
+
+        #fw1 {
+            font-weight: bold;
+        }
+
+        #fw2 {
+            font-weight: 900;
+        }
+
+        /*bolder*/
+        #fw3 {
+            font-weight: lighter;
+        }
+
+        /*100*/
     </style>
 
 </head>
+
 <body>
     <h1>글꼴 관련 스타일 속성 (font~)</h1>
 
@@ -45,18 +75,18 @@
     <p id="ff"></p>
     <p id="ff"></p>
     <p id="ff"></p>
- 
+
     <!-- p#ff$*3 -->
     <p id="ff1"></p>
     <p id="ff2"></p>
     <p id="ff3"></p>
-    
+
     <!-- p.test -->
     <p class="test"></p>
 
     <h3>* 외부 웹 폰트 사용하는 방법</h3>
     <p>
-        웹 폰트 제공 사이트 : 
+        웹 폰트 제공 사이트 :
         <a href="http://fonts.google.com" target="_blank">구글 웹 폰트 사이트</a>
     </p>
 
@@ -67,7 +97,7 @@
     <h3>font-size : 글꼴의 크기를 변경할 때 사용</h3>
     <pre>
     선택자{
-        font-size:크기;   (px, em(배수), %)
+        font-size:px | em(배수) | %;
     }
     </pre>
 
@@ -111,7 +141,7 @@
     <h3>font-style : 텍스트 문구를 기울이고자 할 때 사용</h3>
     <pre>
     선택자 {
-        font-style:normal|italic|oblique;
+        font-style:normal | italic | oblique;
     }
     </pre>
     <p style="font-style: italic;">
@@ -123,4 +153,5 @@
 
 
 </body>
+
 </html>
