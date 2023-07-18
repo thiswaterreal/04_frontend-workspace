@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 관련 스타일</title>
+    <style>
+        .positioning {border: 1px solid black;}
+        .outer {position: relative;}    /* 기준 */
+
+        #first {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+
+        #second {
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+            position: absolute;     /* 내가 원하는 위치에 부여하기 위함 */
+            top: 50px;
+            left: 50px;
+        }
+
+        #third {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;     /* 내가 원하는 위치에 부여하기 위함 */
+            top: 100px;
+            left: 100px;
+            /* 'position : relative' 로 세팅된 부모 요소로부터 위쪽으로 100px, 왼쪽으로 100px 떨어진 위치에 자리함 */
+        }
+
+        #fixed-area {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* position: fixed; */
+        }
+
+        .z-test {
+            border: 1px solid black;
+            width: 150px;
+            height: 100px;
+            position: absolute;
+        }
+
+        #z1 {
+            background-color: yellow;
+            top: 100px;
+            left: 100px;
+            z-index: 10000;
+        }
+
+        #z2 {
+            background-color: green;
+            top: 50px;
+            left: 50px;
+            z-index: 2;
+        }
+
+        #z3 {
+            background-color: red;
+            z-index: 0;
+        }
+
+        .vis-test {
+            width: 100px;
+            height: 100px;
+        }
+
+        .float-test {
+            border: 1px solid black;
+            width: 70px;
+            height: 30px;
+            float: right;   /* 띄워서 왼쪽(오른쪽)으로 배치. 'display : inline' 과 비슷하지만 이건 띄워져있음 */
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h1>배치 관련 스타일</h1>
+    <h3>position : 상대위치(relative)와 절대위치(absolute)</h3>
+
+    <div class="outer">
+        <div class="positioning" id="first">첫번째 자식</div>
+        <div class="positioning" id="second">두번째 자식</div>
+        <div class="positioning" id="third">세번째 자식</div>
+    </div>
+
+    <h3>position : 고정위치(fixed)</h3>
+    <div class="positioning" id="fixed-area"></div>
+
+    <hr>
+
+    <h3>z-index : 요소들을 순서대로 위로 쌓는 속성</h3>
+
+    <div class="outer">
+        <!-- .z-test#z$*3 -->
+        <div class="z-test" id="z1">요소1</div>
+        <div class="z-test" id="z2">요소2</div>
+        <div class="z-test" id="z3">요소3</div>
+    </div>
+
+    afdfasdfasdfasdfadsfasdffdasfasdfasdfasdasdfasdadsfasdfasdf
+    <!-- z-index 주면 떠있는것임. 화면에 붙어있는 마지막 요소 아래 써짐-->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <hr>
+
+    <h3>visibility : 특정 요소를 보이거나, 보이지 않게 하는 스타일 속성</h3>
+    <div class="vis-test" style="background-color: red;">첫번째 영역</div>
+    <div class="vis-test" style="background-color: green; visibility: hidden;">두번째 영역</div>
+    <div class="vis-test" style="background-color: yellow;">세번째 영역</div>
+
+    <b>
+        visivility : hidden 은 공간은 차지하고 있지만 <br>
+        display : none      은 공간마저도 사라지게 함
+    </b>
+
+    <hr>
+    
+    <h3>float</h3> <!-- 플로팅라떼 -->
+    <p>페이지 내의 요소들을 화면으로부터 띄워서 왼쪽 또는 오른쪽으로 배치하는 속성</p>
+
+    <!-- .float-test{요소$}*5 -->
+    <div class="float-test">요소1</div>
+    <div class="float-test">요소2</div>
+    <div class="float-test">요소3</div>
+    <div class="float-test">요소4</div>
+    <div class="float-test">요소5</div>
+
+    <br clear="both">   <!-- 띄워진거 다음에 써지게 함 -->
+
+    <hr>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

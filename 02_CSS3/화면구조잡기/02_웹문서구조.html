@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 문서 구조</title>
+    <style>
+        /* 편리하도록 기본 설정 */
+        div {box-sizing: border-box; border: 1px solid red;}
+
+        /* 전체 감싸는 div */
+        .wrap {
+            margin: auto;   /* 화면 중앙 배치 */
+            width: 1000px;
+            height: 800px;
+        }
+
+        /* 크게 3가지 영역 */
+        /* 공통적인 스타일 찾기 => 가로길이가 부모(wrap) 요소의 100% */
+        /* #heter, #content, #footer {} */
+        .wrap>div { /* 후손 말고 자손만!!(heater, content, footer) */
+            width: 100%;
+        }
+
+        #header, #footer {height: 20%;}
+        #content {height: 60%;}
+
+        /* c1 c2 공통적인 스타일 찾기 => 세로길이가 부모(content) 요소의 100% */
+        #content>div { /* content1, content2 */
+            height: 100%;
+            float: left;
+        }
+
+        #content_1 {width: 20%;}
+        #contetn_2 {width: 80%;}
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrap">
+        <div id="header"></div>
+        <div id="content">
+            <div id="content_1"></div>
+            <div id="content_2"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+
+</body>
+</html>
