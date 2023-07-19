@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 문서 구조</title>
+    <style>
+        div {box-sizing: border-box;} /* border: 1px solid red; */
+
+        .wrap {
+            margin: auto;
+            width: 1000px;
+            height: 800px;
+        }
+
+        .wrap>div {
+            width: 100%;
+        }
+
+        #header, #footer {height: 15%;}
+        #navigator {height: 5%;}
+        #content {height: 65%;}
+
+        #header>div, #content>div {height: 100%; float: left;}
+
+        #header_1 {width: 20%;}
+        #header_2 {width: 60%;}
+        #header_3 {width: 20%;}
+
+        #content_1 {width: 15%;}
+        #content_2 {width: 60%;}
+        #content_3 {width: 25%;}
+        
+        /* header -------------------- */
+        #header {
+            text-align: center;
+            
+        }
+
+        #header_1>#logo_img {margin-top: 20px; margin-left: 30px;  width: 60%;}
+        #header_2>#mainlogo_img {margin-top: 25px;}
+
+        /* navigator -------------------- */
+        #navigator {width: 100%;}
+
+        #navi {
+            background-color: rgb(125, 187, 2);
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #navi>li {
+            box-sizing: border-box;
+            float: left;
+            /* border: 1px solid blue; */
+            width: 25%;
+            height: 100%;
+            text-align: center;
+        }
+
+        #navi a {
+            line-height: 2;
+        }
+
+        /* content -------------------- */
+        #content_1 {padding: 5px;}
+        #content_1>#left_img {width: 100%;}
+
+
+        #content_2>div {
+            width: 50%;
+            height: 50%;
+            float: left;
+            padding: 5px;
+            text-align: center;
+        }
+        #content_2>div>#img4 {width: 100%;}
+
+        
+        #content_3>div {width: 100%; padding: 5px 5px;}
+
+        #content_3>#con1 {height: 20%;}
+        #content_3>#con2 {height: 50%;}
+        #content_3>#con3 {height: 30%;}
+
+        #content_3 img {width: 100%;}
+
+        #login_form {width: 100%; height: 100%;}
+        #login_form>* {width: 100%;}
+        #login_form_input {height: 70%;}
+        #login_form_etc {height: 30%; text-align: center;}
+
+        #login_form_input>* {height: 100%; float: left;}
+        #login_input_id_pwd {width: 70%;}
+        #login_input_btn {width: 30%;}
+
+        #login_input_id_pwd>input {width: 100%; height: 50%; box-sizing: border-box;}
+        #login_input_btn>input {width: 80%; height: 80%; margin: 8px 6px;}
+
+        #login_form_etc>a {
+            text-decoration: none;
+            color: rgb(58, 58, 58);
+            font-size: 12px;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        /* footer -------------------- */
+        #footer {
+            width: 100%;
+            height: 120px;
+            text-align: center;
+            margin: 0;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+
+        <div id="header">
+            <div id="header_1">
+                <img src="image/logo.jpg" id="logo_img" alt="">
+            </div>
+            <div id="header_2">
+                <img src="image/mainlogo.jpg" id="mainlogo_img" alt="">
+            </div>
+            <div id="header_3"></div>
+        </div>
+        <div id="navigator">
+            <ul id="navi">
+                <li><a href="#"></a>Home</li>
+                <li><a href="#"></a>Profile</li>
+                <li><a href="#"></a>Board</li>
+                <li><a href="#"></a>Contact</li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="content_1">
+                <img src="image/left_img.jpg" id="left_img" alt="">
+            </div>
+            <div id="content_2">
+                <div id="con_1">
+                    <img src="image/main_img1.jpg" id="img4" alt="" >
+                    <figcaption>나무를 심는 사람들</figcaption>
+                </div>
+                <div id="con_2">
+                    <img src="image/main_img2.jpg" id="img4" alt="">
+                    <figcaption>아이들에게 녹색미래를..</figcaption>
+                </div>
+                <div id="con_3">
+                    <img src="image/main_img3.jpg" id="img4" alt="">
+                    <figcaption>설악산을 살리는 길</figcaption>
+                </div>
+                <div id="con_4">
+                    <img src="image/main_img4.jpg" id="img4" alt="">
+                    <figcaption>사라지는 북극곰들</figcaption>
+                </div>
+            </div>
+            <div id="content_3">
+                <div id="con1">
+                    <div id="login_form">
+
+                        <form action="" id="login_form_input">
+                            <div id="login_input_id_pwd">
+                                <input type="text" name="userId" placeholder="ID를 입력하세요">
+                                <input type="password" name="userPwd" placeholder="PW를 입력하세요">
+                            </div>
+                            <div id="login_input_btn">
+                                <input type="submit" value="로그인">
+                            </div>
+                        </form>
+                
+                        <div id="login_form_etc">
+                            <a href="#">회원가입</a>
+                            <a href="#">ID/PW 찾기</a>
+                        </div>
+            
+                    </div>
+                </div>
+                <div id="con2">
+                    <img src="image/right_img.jpg" id="right_img" alt="">
+                </div>
+                <div id="con3">
+                    <img src="image/me_chat.jpg" id="chat_img" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <img src="image/footer.JPG" alt="">
+        </div>
+
+    </div>
+
+
+</body>
+</html>

@@ -15,9 +15,8 @@
             padding: 3px;
         }
 
-        .wrap>div {
+        .wrap>div { /* header, content, footer (가로 공통) */
             width: 100%;
-            /* padding: 3px; */
         }
 
         #header, #footer {
@@ -30,13 +29,14 @@
         }
 
         /* h1, h2 */
-        #header>div { /* header_1, header_2 */
+        #header>div { /* header_1, header_2 (세로 공통)*/
             height: 100%;
-            float: left;
+            /* float: left; */
+            display: inline-block;
         }
 
         #header_1 {
-            width: 30%; 
+            width: 29%; 
             border: 3px solid blue;
         }
         #header_2 {
@@ -45,13 +45,14 @@
         }
 
         /* c1, c3, c3 */
-        #content>div { /* content_1, content_2, content_3 */
+        #content>div { /* content_1, content_2, content_3 (세로 공통)*/
             height: 100%;
-            float: left;
+            /* float: left; */
+            display: inline-block;
         }
         
         #content_1 {
-            width: 20%; 
+            width: 19%; 
             border: 3px solid blue;
         }
         #content_2 {
