@@ -32,7 +32,27 @@
         4) 선택한요소.innerHTML | innerText = "요소에 출력할 문구";
     </p>
 
-    <h3>3) document.write('화면상 출력할 문구');</h3>
+
+    <h3>1) [window.]alert('알람창에 출력할 문구');</h3>
+    <button onclick="test();">알람창 출력</button>
+    <script>
+        function test() {
+            /*window.*/alert('알림창 나와라 뚝딱!')
+        }
+    </script>
+
+
+    <h3>2) [window.]console.log('콘솔창에 출력할 문구');</h3>
+    <button onclick="btnClick();">콘솔 출력</button>
+
+    <script>
+        function btnClick() {    
+            console.log('콘솔버튼 클릭!!')
+        }
+    </script>
+
+
+    <h3>3) document.write('화면상(새로운 창) 출력할 문구');</h3>
     <button onclick="documentWrite();">화면에 출력</button>
 
     <script>
@@ -41,10 +61,21 @@
             //document.write("<b>안녕하세요</b><br><h2>반가워</h2>")
             // 출력할 구문에 html 태그가 있을 경우 해석해서 시각적인 요소에 보여짐
         
-            var a = "<table border='1'>";  // 변수 a 에 차곡차곡 누적!
+            /*
+                <table border="1">
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            */
+
+            var a = "<table border='1'>";  // 변수 a 에 차곡차곡 누적!! (+=)
             a += "<tr>";
             a += "<td>1</td>";
             a += "<td>2</td>";
+            a += "<td>3</td>";
             a += "</tr></table>"
 
             document.write(a);
@@ -52,8 +83,6 @@
     </script>
 
     <br><br>
-
-
 
 
     <h3>4) 선택한요소.innerHTML | innerText = "해당 요소에 출력할 문구";</h3>
