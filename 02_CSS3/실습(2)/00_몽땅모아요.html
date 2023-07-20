@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>웹 문서 구조</title>
     <style>
-        div, form {border: 1px solid red; box-sizing: border-box;}
+        div, form {box-sizing: border-box;} /*border: 1px solid red; */
         
         .wrap {
             margin: auto;
@@ -16,7 +16,7 @@
         .wrap>div { 
             width: 100%;
         }
-        #header {height: 15%;}
+        #header {height: 15%; border: 1px solid lightgray}
         #navigator {height: 5%;}
         #content {height: 60%;}
         #footer {height: 20%;}
@@ -33,7 +33,7 @@
 
         /* header----------------------------------- */
         #header>div {height: 100%; float: left;}
-        #header_1 {width: 30%; padding: 30px 40px;}
+        #header_1 {width: 30%; padding: 30px 60px;}
 
         #header_2 {width: 40%;}
         #search_form {width: 100%; height: 30%; margin-top: 40px;}
@@ -52,9 +52,9 @@
             width: 100%;
             height: 100%;
             list-style-type: none;
-            margin: 0;
+            margin: 10px 0;
             padding: 0;
-            border: 1px solid gray;
+            border: 1px solid lightgray
            
 
         }
@@ -77,29 +77,46 @@
 
 
         /* content1------------------------------- */
+        #content {margin-top: 10px;}
         #content_1>div {width: 100%;}
-        #con1 {height: 30%;}
-        #con2 {height: 15%; padding: 8px 0;}
-        #con3 {height: 55%;}
+        #con1 {height: 30%; border: 1px solid lightgray}
+        #con2 {height: 15%; padding: 8px 0; color: gray;}
+        #con3 {height: 55%; border: 1px solid lightgray}
 
         #con1>img {width: 100%; height: 100%;}
 
-        #con2>* {height: 100%; float: left; margin: 0;}
-        #notice {width: 80%; line-height: 4; font-size: 13px; padding-left: 20px;}
-        #bar {width: 20%; text-align: right; line-height: 3; padding: 0 20px;}
-        #bar>a {text-decoration: none; color: black; font-size: 12px;}
+        #con2>* {height: 100%; float: left; margin: 0;
+                border-top: solid;
+                border-bottom: solid;
+                border-width: 1px;
+                border-color: lightgrey;
+        }
+        #notice {width: 80%; line-height: 4; font-size: 13px; padding-left: 20px; 
+                border-left: solid;
+                border-width: 1px;
+                border-color: lightgrey;
+        }
+        #bar {width: 20%; text-align: right; line-height: 3; padding: 0 20px;
+                border-right: solid;
+                border-width: 1px;
+                border-color: lightgrey;
+        }
+        #bar>a {text-decoration: none; color: gray; font-size: 12px;}
 
         #con3>img {width: 100%; height: 100%;}
 
 
         /* content2------------------------------- */
         #content_2>div {width: 100%;}
-        #tent1 {height: 30%; padding: 5px 5px;}
+        #tent1 {height: 30%; padding: 0 5px;}
         #tent2 {height: 70%; padding: 5px 5px;}
 
 
-        #login_form {width: 100%; height: 100%; border: 1px soild lightgray;}
-        #login_form>div {width: 100%;}
+        #login_form {width: 99%; height: 100%; 
+                    border: 1px solid lightgrey;
+                    margin-left: 7px;
+                }
+        #login_form>div {width: 100%; }
         #login_form_input {height: 80%;}
         #login_form_etc {height: 20%; text-align: center;}
 
@@ -118,14 +135,19 @@
             vertical-align: middle;
         }
 
-        #tent2>img {width: 100%; height: 100%; border: 1px solid lightgrey;}
+        #tent2>img {width: 98%; height: 100%; 
+                    margin-top: 3px; 
+                    margin-left: 7px;
+                    border: 1px solid lightgrey;}
 
         
         /*footer------------------------------------*/
-        #footer>div {width: 100%;}
+        #footer {width: 100%; border: 1px solid lightgrey; margin-top: 10px;}
+        #footer>div {width: 100%; }
         #footer_1 {height: 20%;}
         #footer_2 {height: 80%;}
-
+        
+        #footer {padding-top: 5px;}
         #footer_1>a {
             text-decoration: none;
             color: black;
@@ -142,7 +164,7 @@
             font-size: 12px;
             color: black;
         }
-        #p1 {height: 80%; padding: 10px 20px;}
+        #p1 {height: 80%; padding: 20px 20px;}
         #p2 {height: 20%; text-align: center;}
 
     </style>

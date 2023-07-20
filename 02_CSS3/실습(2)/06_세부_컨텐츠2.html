@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div {box-sizing: border-box; border: 1px solid red;}
+        #content_2 {width: 300px; height: 480px;}
+
+        #content_2>div {width: 100%;}
+        #tent1 {height: 30%; padding: 5px 5px;}
+        #tent2 {height: 70%; padding: 5px 5px;}
+
+
+        #login_form {width: 100%; height: 100%; border: 1px soild lightgray;}
+        #login_form>div {width: 100%;}
+        #login_form_input {height: 80%;}
+        #login_form_etc {height: 20%; text-align: center;}
+
+        #login_form_input>div {height: 100%; float: left;}
+        #login_input_id_pwd {width: 70%;}
+        #login_input_btn {width: 30%;}
+
+        #login_input_id_pwd>input {width: 100%; height: 50%; box-sizing: border-box;}
+        #login_input_btn>input {width: 100%; height: 100%; box-sizing: border-box;}
+
+        #login_form_etc>a {
+            text-decoration: none;
+            color: gray;
+            font-size: 12px;
+            margin: 3px;
+            vertical-align: middle;
+        }
+
+        #tent2>img {width: 100%; height: 100%; border: 1px solid lightgrey;}
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div id="content_2">
+        <div id="tent1">
+            <div id="login_form">
+
+                <form action="" id="login_form_input">
+                    <div id="login_input_id_pwd">
+                        <input type="text" name="userId" placeholder="아이디를 입력하세요">
+                        <input type="password" name="userPwd" placeholder="비밀번호를 입력하세요">
+                    </div>
+                    <div id="login_input_btn">
+                        <input type="submit" value="로그인">
+                    </div>
+                </form>
+                <div id="login_form_etc">
+                    <a href="#">아이디</a> |
+                    <a href="#">비밀번호찾기</a> |
+                    <a href="#">회원가입</a>
+                </div>
+
+            </div>
+        </div>
+        <div id="tent2">
+            <img src="image/shopping.PNG" alt="">
+        </div>
+    </div>
+
+</body>
+</html>
