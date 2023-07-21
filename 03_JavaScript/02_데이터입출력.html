@@ -45,6 +45,7 @@
     <h3>2) [window.]console.log('콘솔창에 출력할 문구');</h3>
     <button onclick="btnClick();">콘솔 출력</button>
 
+
     <script>
         function btnClick() {    
             console.log('콘솔버튼 클릭!!')
@@ -54,12 +55,23 @@
 
     <h3>3) document.write('화면상(새로운 창) 출력할 문구');</h3>
     <button onclick="documentWrite();">화면에 출력</button>
+    <button onclick="documentWriteee();">야호 출력</button>
+
+    <script>
+        function documentWriteee() { // 문자 그대로 출력
+
+            // var a = "야호~~~";
+            // document.write(a);
+           
+            document.write('야호');
+        }
+    </script>
 
     <script>
         function documentWrite() {
             //document.write("안녕하세요")
             //document.write("<b>안녕하세요</b><br><h2>반가워</h2>")
-            // 출력할 구문에 html 태그가 있을 경우 해석해서 시각적인 요소에 보여짐
+            // 출력할 구문에 !!! *** 태그가 있을 경우 해석해서 *** 시각적인 요소에 보여짐
         
             /*
                 <table border="1">
@@ -91,8 +103,6 @@
         변경하고자 할 때 <b>innerHTML, innerText</b>라는 속성에 접근
     </div>
 
-    <button onclick="tagValue();">확인</button>
-
     <script>
         function tagValue() {
             // 위의 div 요소 가져와서 안에 값을 확인/변경
@@ -100,17 +110,18 @@
             // div 요소 객체를 가져와서 변수에 담아두기
             var divEl = document.getElementById("area1");
 
-            console.log(divEl)
+            console.log(divEl)  // area1 내용 그대로가 콘솔에 찍힘
             console.dir(divEl)  // 해당 값의 디렉토리 구조 보고자 할 때 사용 (속성들에 대한 정보)
 
             // 선택한 요소의 속성에 접근'확인' 가능 (.을 통해서)
-            console.log(divEl.id) // id : 해당 요소의 아이디 속성 알려줌
-            console.log(divEl.className) // className : 해당 요소의 클래스 속성 알려줌
+            console.log(divEl.id)        // id        : 해당 요소의 아이디 속성 알려줌 => area1
+            console.log(divEl.className) // className : 해당 요소의 클래스 속성 알려줌 => area
 
             console.log(divEl.innerHTML) // innerHTML : 글자 + 태그까지 : 요소의 content 영역 안의 html 태그까지 모두 포함
             console.log(divEl.innerText) // innerText : 글자만         : 요소의 content 영역 안의 텍스트만 포함 (html 태그 x)
 
             // 해당 요소의 속성값 '변경'도 가능 : 속성에 접근 후 대입을 통해서 변경
+            //divEl.innerHTML = "변경되나요~~??"
             divEl.innerHTML = "<b>innerHTML로 속성값 변경함ㅎㅎ</b>" // 글자 + 태그속성까지 적용
             //divEl.innerText = "<b>innerText로 속성값 변경함ㅋㅋ</b>"   // 글자 (태그속성 글자 그대로 적어버림)
 
@@ -140,10 +151,14 @@
     <button onclick="testConfirm();">클릭</button>
     <div id="area2"></div>
 
+
     <script>
         function testConfirm() {
+            //console.log(confirm("졸리면 확인, 아니면 취소를 누르세요")); 이것도 가능하지만 결과값(true/false) 사용하기 위해 변수에 담자!
+            
             var result = confirm("졸리면 확인, 아니면 취소를 누르세요");    // true | falue
             //console.log(result);
+
 
             var divEl = document.getElementById("area2"); // id가 area2 찾아서 divEl에 담아라
 
