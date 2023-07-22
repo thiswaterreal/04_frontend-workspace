@@ -151,8 +151,7 @@
     <button onclick="testConfirm();">클릭</button>
     <div id="area2"></div>
 
-
-    <script>
+    <!-- <script>
         function testConfirm() {
             //console.log(confirm("졸리면 확인, 아니면 취소를 누르세요")); 이것도 가능하지만 결과값(true/false) 사용하기 위해 변수에 담자!
             
@@ -160,7 +159,7 @@
             //console.log(result);
 
 
-            var divEl = document.getElementById("area2"); // id가 area2 찾아서 divEl에 담아라
+            var divEl = document.getElementById("area2"); // id가 area2 찾아서 divEl에 주섬
 
             if(result) {
                 //console.log("정신들 차리세요~")
@@ -171,7 +170,7 @@
             }
 
         }
-    </script>
+    </script> -->
 
     <hr>
 
@@ -222,7 +221,14 @@
             }
             */
 
+            /*
+            <li>목록1</li>
+            <li>목록2</li>
+            <li>목록..</li>
+            */
+
             var str = "";
+
             for(var i=1; i<=num; i++) {
                 str += "<li>목록" + i + "</li>"
             }
@@ -259,6 +265,9 @@
             var id = input1.value;
             var pwd = input2.value;
 
+            var inputEl = document.getElementById("area5")
+            inputEl.value = id + "," + pwd
+            // 한 줄로 요약
             document.getElementById("area5").value = id + ", " + pwd;   // innerHTML 아님!! input은 value임!!
 
             // 클릭버튼 누르면 각각의 인풋창을 초기화하고 싶다면?
