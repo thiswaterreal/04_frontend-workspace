@@ -33,6 +33,7 @@
             const str1 = "Hello World";
 
             area1.innerHTML = "str1 : " + str1 + "<br>";
+            area1.innerHTML += "str1의 자료형 : " + typeof(str1) + "<br>";
 
             area1.innerHTML += "toUpperCase() : " + str1.toUpperCase() + "<br>";
             area1.innerHTML += "toLowerCase() : " + str1.toLowerCase() + "<br>";
@@ -114,6 +115,10 @@
 
     <script>
         function arithmetic() {
+
+            // 덧셈에서는 문자열 승!
+            // 덧셈 외 나머지에서는 숫자 승!
+
             const test1 = 7 + 7;            // 14
             const test2 = 7 + "7";          // "77"
             const test3 = "7" + 7;          // "77"
