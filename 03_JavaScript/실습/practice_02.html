@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice_01</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 만들어 보시오</h1>
+    <div id="area1" class="box" ></div>
+    <input type="color" id="color">
+    <button onclick="change();">변경</button>
+
+    <script>
+        function change() {
+            var area1 = document.getElementById("area1");
+            var color = document.getElementById("color");
+
+            //console.dir(color);
+            //console.log(color.value);
+
+            var changeColor = color.value;
+
+            area1.style.backgroundColor = changeColor;
+        }
+    </script>
+
+
+
+    <br>
+
+    <h1>2. 버튼에 따라 크기 조절이 가능하게 만들기</h1>
+    <div id="area2" class="box"></div>
+    <button onclick="small();">50x50</button>
+    <button onclick="original();">원본(100x100)</button>
+    <button onclick="big();">200x200</button>
+
+    <script>
+        function small() {
+            var area = document.getElementById("area2")
+        
+            area2.style.width = "50px"
+            area2.style.height = "50px"
+        }
+
+        function original() {
+            var area2 = document.getElementById("area2")
+        
+            area2.style.width = "100px"
+            area2.style.height = "100px"
+        }
+
+        function big() {
+            var area2 = document.getElementById("area2")
+        
+            area2.style.width = "200px"
+            area2.style.height = "200px"
+        }
+    </script>
+
+<br>
+
+<h1>3. (매개변수)버튼에 따라 크기 조절이 가능하게 만들기</h1>
+<div id="area3" class="box"></div>
+<button onclick="test('s')">50x50</button>
+<button onclick="test('m')">원본(100x100)</button>
+<button onclick="test('l')">200x200</button>
+
+<script>
+    
+    function test(value) {
+        const area3 = document.getElementById("area3");
+        if(value == 's') {
+            area3.style.width = "50px";
+            area3.style.height = "50px";
+            area3.style.backgroundColor = "red";
+        }else if (value == 'm') {
+            area3.style.width = "100px";
+            area3.style.height = "100px";
+            area3.style.backgroundColor = "orange";
+        }else {
+            area3.style.width = "200px";
+            area3.style.height = "200px";
+            area3.style.backgroundColor = "skyblue";
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice_01</title>
+
+</head>
+<body>
+
+    <h1>행 열 각각 입력받아 테이블 만들기</h1>
+    <h3>힌트 : 반복문은 자바랑 같습니다. 다만! 변수만 var 데이터형 이라는걸 기억해주세요</h3>
+    
+    <button onclick="newTable1();">테이블 생성</button>
+    <div id="area"></div>
+
+    <script>
+        function newTable1() {
+
+            var row = prompt("몇 행을 추가하시겠습니까?")
+            var col = prompt("몇 열을 추가하시겠습니까?")
+
+            // <table border='1'>
+            //     <tr>
+            //         <td>&nbsp</td>
+            //     </tr>
+            // </table>
+
+            var a = "<table border='1'>";
+            for(var i=1; i<=row; i++) {
+                a += "<tr>"
+                    for(var j=1; j<=col; j++) {
+                        // a += "<td></td>";
+                        a += "<td>&nbsp</td>";
+                    }
+                a += "</tr>"
+            }
+            a += "</table>"
+            
+            // 해당 창에 그대로
+            var divEl = document.getElementById("area");
+            divEl.innerHTML = a;
+
+            }
+    </script>
+
+    <br>
+
+    <h1>행 열 각각 입력받아 새화면에서 출력하기</h1>
+    <h3>힌트 : document.write()를 이용하여 표를 출력하면 됩니다.</h3>
+
+    <button onclick="newTable2();">테이블 새화면 생성</button>
+
+    <script>
+
+        function newTable2() {
+
+            var row = prompt("몇 행을 추가하시겠습니까?")
+            var col = prompt("몇 열을 추가하시겠습니까?")
+
+            var count = 1;
+
+            var a = "<table border='1'>";
+            for(var i=1; i<=row; i++) {
+                a += "<tr>"
+                    for(var j=1; j<=col; j++) {
+                        a += "<td>" + count + "</td>";
+                        count++;
+                    }
+                a += "</tr>"
+            }
+            a += "</table>"
+            
+            // 새로운 창으로
+            document.write(a);
+
+        }        
+
+    </script>
+
+</body>
+</html>
