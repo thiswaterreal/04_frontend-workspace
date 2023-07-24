@@ -16,20 +16,20 @@
 <body>
     <h1>1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 만들어 보시오</h1>
     <div id="area1" class="box" ></div>
-    <input type="color" id="color">
-    <button onclick="change();">변경</button>
+    <input type="color" id="colorbox">
+    <button onclick="changeColor();">변경</button>
 
     <script>
-        function change() {
+        function changeColor() {
             var area1 = document.getElementById("area1");
-            var color = document.getElementById("color");
+            var colorbox = document.getElementById("colorbox");
 
             //console.dir(color);
             //console.log(color.value);
 
             // input으로 받은 값을(value) 변수에 담담
-            var changeColor = color.value
-            area1.style.backgroundColor = changeColor; 
+            var change = colorbox.value
+            area1.style.backgroundColor = change; //**.innerHTML 이 아님!! style 이니까!
 
             // 한줄로..
             // area1.style.backgroundColor = color.value;
@@ -46,7 +46,7 @@
 
     <script>
         function small() {
-            var area = document.getElementById("area2")
+            var area2 = document.getElementById("area2")
         
             area2.style.width = "50px"
             area2.style.height = "50px"

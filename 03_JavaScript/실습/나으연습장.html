@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            border: 1px solid black;
+            width: 500px;
+            height: 100px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="area1" class="area"></div>
+    <button onclick="test('안녕하세용');">확인하기</button>
+    <button onclick="test();">확인하기</button>
+    <button onclick="test();">확인하기</button>
+    <button onclick="test();">확인하기</button>
+
+    <script>
+        function test(value) {
+            const area1 = document.getElementById("area1");
+            area1.innerHTML = value;
+        }
+    </script>
+</body>
+</html>
