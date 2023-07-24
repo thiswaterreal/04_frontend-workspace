@@ -32,24 +32,23 @@
 
         function output() {
 
-            var input1 = document.getElementsByTagName("input")
-            var input2 = document.getElementById("product")
-            var input3 = document.getElementsByName("price")
+            const input1 = document.getElementsByTagName("input")
+            const input2 = document.getElementById("product")
+            const input3 = document.getElementsByName("price")
 
-            // console.log(input1.value);
-            // console.log(input2.value);
-            // console.log(input3.value);
+            const us = input1[0].value;
+            const pd = input2.value;
+            const pr = input3[0].value;
 
-            console.dir(input3)
-
-            var us = input1[0].value;
-            var pd = input2.value;
-            var pr = input3[0].value;
-
-
-            var divEl = document.getElementById("area")
-            divEl.innerHTML = "구매자 : " + us + "<br>" + "상품명 : " + pd + "<br>" + "가격 : " + pr + "<br>"
+            const area = document.getElementById("area")
+            area.innerHTML = "구매자 : " + us + "<br>" + "상품명 : " + pd + "<br>" + "가격 : " + pr + "<br>"
         
+            // * input 값 받기!! (value)
+            // const input = document.getElementById("inputId");
+            // const i = input.value;
+            // -------------------------------------------------
+            // const area = document. getElementById("area");
+            // area.innerHTML = i;
         }
 
     </script>

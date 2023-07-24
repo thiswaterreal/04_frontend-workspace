@@ -17,8 +17,8 @@
     <script>
         function newTable1() {
 
-            var row = prompt("몇 행을 추가하시겠습니까?")
-            var col = prompt("몇 열을 추가하시겠습니까?")
+            const row = prompt("몇 행을 추가하시겠습니까?")
+            const col = prompt("몇 열을 추가하시겠습니까?")
 
             // <table border='1'>
             //     <tr>
@@ -26,11 +26,10 @@
             //     </tr>
             // </table>
 
-            var a = "<table border='1'>";
-            for(var i=1; i<=row; i++) {
+            let a = "<table border='1'>";   // const 불가!! 상수이기 때문에 안변함
+            for(let i=1; i<=row; i++) {
                 a += "<tr>"
-                    for(var j=1; j<=col; j++) {
-                        // a += "<td></td>";
+                    for(let j=1; j<=col; j++) {
                         a += "<td>&nbsp</td>";
                     }
                 a += "</tr>"
@@ -38,8 +37,8 @@
             a += "</table>"
             
             // 해당 창에 그대로
-            var divEl = document.getElementById("area");
-            divEl.innerHTML = a;
+            const area = document.getElementById("area");
+            area.innerHTML = a;
 
             }
     </script>
@@ -55,17 +54,17 @@
 
         function newTable2() {
 
-            var row = prompt("몇 행을 추가하시겠습니까?")
-            var col = prompt("몇 열을 추가하시겠습니까?")
+            const row = prompt("몇 행을 추가하시겠습니까?")
+            const col = prompt("몇 열을 추가하시겠습니까?")
 
-            var count = 1;
+            let count = 1;  // const 불가!! 상수이기 때문에 안변함
 
-            var a = "<table border='1'>";
-            for(var i=1; i<=row; i++) {
+            let a = "<table border='1'>";   
+            for(let i=1; i<=row; i++) {
                 a += "<tr>"
-                    for(var j=1; j<=col; j++) {
+                    for(let j=1; j<=col; j++) {
                         a += "<td>" + count + "</td>";
-                        count++;
+                        count++;    //**
                     }
                 a += "</tr>"
             }

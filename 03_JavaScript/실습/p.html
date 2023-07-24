@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {border: 1px solid red;}
+        .small {height: 100px;}
+        .big {height: 200px;}
+
+    </style>
+</head>
+<body>
+    <h3>.indexOf(찾는요소)</h3> <!---->
+    <div id="area1" class="area small"></div>
+    <button onclick="indexOfTest();">확인하기</button>
+
+    <script>
+
+        function indexOfTest() {
+            const area1 = document.getElementById("area1");
+
+            const arr = ["사과", "딸기", "바나나", "복숭아", "파인애플"];
+            const search = prompt("무슨 과일 찾누");
+
+            area1.innerHTML = "찾고자하는 " + search + "는 " + arr.indexOf(search) + "번째에 있음요";
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.concat(배열, 배열, ..)</h3>
+    <div id="area2" class="area small"></div>
+    <button onclick="concatTest();">확인하기</button>
+
+    <script>
+
+        function concatTest() {
+            const area2 = document.getElementById("area2");
+
+            const arr1 = ["사과", "딸기"];
+            const arr2 = ["자동차", "비행기", "오토바이"];
+
+            area2.innerHTML = arr1.concat(arr2) + "<br>";
+            area2.innerHTML += arr1;
+            // 원본 안바뀜
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.reverse()</h3>
+    <div id="area3" class="area small"></div>
+    <button onclick="reverseTest();">확인하기</button>
+
+    <script>
+        
+        function reverseTest() {
+            const area3 = document.getElementById("area3");
+
+            const arr = [1,2,3,4,5];
+        
+            area3.innerHTML = arr + "<br>"; 
+            area3.innerHTML += arr.reverse() + "<br>";
+            // 원본 바뀜
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.sort()</h3>
+    <div id="area4" class="area small"></div>
+    <button onclick="sortTest();">확인하기</button>
+
+    <script>
+
+        function sortTest() {
+            const area4 = document.getElementById("area4");
+
+            const arr = ["다", "가", "차", "사", "하", "아"]
+
+            area4.innerHTML = arr.sort() + "<br>";
+            area4.innerHTML += arr;
+            // 원본 바뀜
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.push("추가할요소") : 배열의 맨 뒤에다가 요소 '추가' 시키고, '배열의 크기' 반환</h3>
+    <div id="area5" class="area small"></div>
+    <button onclick="pushTest();">확인하기</button>
+
+    <script>
+
+        function pushTest() {
+            const area5 = document.getElementById("area5");
+
+            const arr = ["서초동", "뱅배동", "역삼동", "삼성동", "대치동"];
+
+            area5.innerHTML = arr + "<br>";
+            area5.innerHTML += arr.push("신도림동") + "<br>";   // 6번째로추가됨 + 추가 후 배열의크기 반환
+        
+            arr.push("노량진동"); // 7번째로추가됨
+            area5.innerHTML += arr + "<br>";
+            // 원본 바뀜
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.pop() : 배열의 '맨 뒤 요소 제거' 시키고, '제거된 요소' 반환</h3>
+    <div id="area6" class="area small"></div>
+    <button onclick="popTest();">확인하기</button>
+
+    <script>
+
+        function popTest() {
+            const area6 = document.getElementById("area6");
+
+            const arr = ["서초동", "뱅배동", "역삼동", "삼성동", "대치동"];
+
+            area6.innerHTML = arr + "<br>";
+            area6.innerHTML += arr.pop() + "<br>";  // 제거할 "대치동" 반환
+            area6.innerHTML += arr + "<br>";
+            
+            arr.pop();  // "대치동" 제거
+            arr.pop();  // "삼성동" 제거
+            area6.innerHTML += arr + "<br>";
+            // 원본 바뀜
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.unshift("추가할요소") : 배열의 맨 앞에다가 요소 '추가' 시키고, '배열의 크기' 반환</h3>
+    <div id="area7" class="area small"></div>
+    <button onclick="unshiftTest();">확인하기</button>
+
+    <script>
+
+        function unshiftTest() {
+            const area7 = document.getElementById("area7");
+
+            const arr = ["당구", "야구", "볼링", "테니스"];
+
+            area7.innerHTML = arr + "<br>";
+            area7.innerHTML += arr.unshift("축구") + "<br>";    // 첫번째에 추가됨 + 추가 후 배열의크기 반환
+            
+            arr.unshift("농구");    // 첫번째에 추가됨
+            area7.innerHTML += arr + "<br>";
+            // 원본 바뀜
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.shift() : 배열의 '맨 앞 요소 제거'시키고, '제거된 요소' 반환</h3>
+    <div id="area8" class="area small"></div>
+    <button onclick="shiftTest();">확인하기</button>
+
+    <script>
+
+        function shiftTest() {
+            const area8 = document.getElementById("area8");
+
+            const arr = ["당구", "야구", "볼링", "테니스"];
+
+            area8.innerHTML = arr + "<br>";
+            area8.innerHTML += arr.shift() + "<br>";  // 제거할 "당구" 반환;
+            area8.innerHTML += arr + "<br>";
+
+            arr.shift();  // "야구" 제거
+            area8.innerHTML += arr + "<br>";
+            // 원본 바뀜
+
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.slice(시작, 끝+1) : 배열로부터 시작인덱스에서부터 끝 인덱스까지 단지 추출해주는 메소드</h3>
+    <div id="area9" class="area small"></div>
+    <button onclick="sliceTest();">확인하기</button>
+
+    <script>
+
+        function sliceTest() {
+            const area9 = document.querySelector("#area9");
+
+            const arr = ["Java", "Oracle", "HTML", "CSS", "JavaScript"];
+            
+            area9.innerHTML = arr + "<br>";
+            area9.innerHTML += arr.slice(0,3) + "<br>"; // 추출만
+            area9.innerHTML += arr.slice(2,5) + "<br>"; // 추출만
+            area9.innerHTML += arr.slice(1,4) + "<br>"; // 추출만
+            area9.innerHTML += arr + "<br>";
+            // 원본 안바뀜
+        }
+
+    </script>
+
+    <br><br>
+    <hr>
+
+    <h3>.splice(시작, 제거갯수[, 추가할 값]) : (뽑아서 반환해주고 버림) 배열의 요소 추출해서 제거 및 추가해주는 메소드</h3>
+    <div id="area10" class="area small"></div>
+    <button onclick="spliceTest();">확인하기</button>
+
+    <script>
+
+        function spliceTest() {
+            const area10 = document.querySelector("#area10");
+
+            const arr = ["Java", "Oracle", "HTML", "CSS", "JavaScript"];
+
+            area10.innerHTML = arr + "<br>";
+            area10.innerHTML += arr.splice(2,1) + "<br>";  // 뽑아서 반환해주고 버림
+            area10.innerHTML += arr + "<br>";
+            // 원본 바뀜
+        }
+
+    </script>
+
+
+
+
+
+</body>
+</html>
