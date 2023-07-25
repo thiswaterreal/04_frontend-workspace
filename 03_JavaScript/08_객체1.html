@@ -105,7 +105,7 @@
             };
             // 속성명에 공백이나 특문이 포함될 경우 반드시 문자열로 묶어야됨
 
-            console.log(user);
+            //console.log(user);
 
             const area2 = document.getElementById("area2");
 
@@ -166,16 +166,16 @@
             area3.innerHTML += key + " : " + game[key] + "<br>";
             };
 
-            // in 뒤에 객체 제시시
-            // 반복문 돌 때마다 해당 객체의 '속성명' 이 '앞쪽의 변수(key)'에 담김 ***
+            // *** in 뒤에 객체 제시시
+            // *** 반복문 돌 때마다 해당 객체의 '속성명' 이 '앞쪽의 변수(key)'에 담겨서 출력 => title : 오버워치, .. ***
         }
         
     </script>
 
     <hr>
 
-    <h3>* 객체의 메소드 속성</h3>
-    <p>객체의 속성 중 함수자료형인 속성을 메소드라고 부름</p>
+    <h3>* 객체의 메소드(함수) 속성</h3>
+    <p>객체의 속성 중 '함수자료형인 속성'을 '메소드'라고 부름</p>
 
     <button onclick="test4();">실행확인</button>
     <div id="area4" class="area small"></div>
@@ -190,7 +190,7 @@
             const dog = {
                 name : "복실이",
                 kind : "비글",
-                eat : function(food) {  // 객체 안에 함수 사용 가능 (객체의 메소드)
+                eat : function(food) {  // 객체 안에 함수 사용 가능 (메소드)
                     //area4.innerHTML += "eat 메소드가 호출되었습니다. <br>";
                     //area4.innerHTML += food;
 
@@ -260,7 +260,12 @@
             area5.innerHTML += "name 속성이 있나요 : " + ("name" in student) + "<br>";
             area5.innerHTML += "age 속성이 있나요 : " + ("age" in student) + "<br>";
 
+            // 객체 for in문 돌리기 => 잘되다가..메소드부분은 출력불가..
+            // for(let i in student) {
+            //     area5.innerHTML += i + " : " + student[i] + "<br>";
+            // }
             
+            // 따라서, 하나씩 넣어줌
             // area5.innerHTML += "학생이름 : " + student.name + "<br>";
             // area5.innerHTML += "국어점수 : " + student.kor + "<br>";
             // area5.innerHTML += "수학점수 : " + student.math + "<br>";
@@ -269,7 +274,7 @@
             // area5.innerHTML += "평균 : " + student.getAvg() + "<br>";
 
             // *with*
-            // student 계속 쓰기 귀찮아.. 그렇다면 ?? with를 써보자
+            // 근데, student 계속 쓰기 귀찮아.. 그렇다면 ??  with를 써보자
             with(student) {
                 area5.innerHTML += "학생이름 : " + name + "<br>";
                 area5.innerHTML += "국어점수 : " + kor + "<br>";
@@ -295,7 +300,7 @@
         function test6() {
             const student = {};     // 빈 객체 생성
 
-            // 뒤늦게 객체에 속성 추가
+            // 뒤늦게 객체에 속성 추가 (객체.속성명="속성값";)
             student.name = "문동은";
             student.hobby = ["게임", "음악감상"];
             student.dream = "바둑왕";
@@ -303,7 +308,7 @@
 
             student.dream = "바둑선생님";
 
-            // 메소드 속성 추가
+            // 객체에 메소드 속성 추가
             student.toString = function() {
                 const str = "name : " + this.name + "<br>"
                           + "hobby : " + this.hobby + "<br>"

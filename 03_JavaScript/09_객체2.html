@@ -37,12 +37,14 @@
             students.push(student3);
 
             console.log(students);
-            console.log(students[0]);
-            console.log(students[0].name); // 0번째 객체 중 속성이 name 인 값을 찍어줌 => '문동은'
+            console.log(students[0]);       // {name:"문동은", java:100, oracle:90, html:90, css:60}
+            console.log(students[0].name);  // 0번째 객체 중 속성이 name 인 값을 찍어줌 => '문동은'
 
             // 객체.속성 = 새로운값;
-            // for문 돌려서 새로운값 촤악 들어가도록..
+            // for문 돌려서 새로운값 촤악 추가되도록..
             for(let i in students) {    // i=0, i=1, ...
+
+                // 객체에 속성 추가, 메소드 추가
                 students[i].javascript = 100;
                 students[i].getSum = function() {
                     return this.java + this.oracle + this.html + this.css + this.javascript;
@@ -81,7 +83,7 @@
         
             //console.log(student0);
 
-            const students = [student0, student1, student2];    // 객체들 배열에 담아
+            const students = [student0, student1, student2];    // 배열에 <= 객체들 담아
             console.log(students);
 
             for(let i in students) {
