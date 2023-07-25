@@ -102,6 +102,7 @@
         자바스크립트에서 어떤 요소(element)안의 값(content)을 가지고 온다거나 <br>
         변경하고자 할 때 <b>innerHTML, innerText</b>라는 속성에 접근
     </div>
+    <button onclick="tagValue();">클릭</button>
 
     <script>
         function tagValue() {
@@ -109,6 +110,8 @@
 
             // div 요소 객체를 가져와서 변수에 담아두기
             var divEl = document.getElementById("area1");
+
+    
 
             console.log(divEl)  // area1 내용 그대로가 콘솔에 찍힘
             console.dir(divEl)  // 해당 값의 디렉토리 구조 보고자 할 때 사용 (속성들에 대한 정보)
@@ -119,15 +122,17 @@
 
             console.log(divEl.innerHTML) // innerHTML : 글자 + 태그까지 : 요소의 content 영역 안의 html 태그까지 모두 포함
             console.log(divEl.innerText) // innerText : 글자만         : 요소의 content 영역 안의 텍스트만 포함 (html 태그 x)
-
+            
+            
             // 해당 요소의 속성값 '변경'도 가능 : 속성에 접근 후 대입을 통해서 변경
             //divEl.innerHTML = "변경되나요~~??"
             divEl.innerHTML = "<b>innerHTML로 속성값 변경함ㅎㅎ</b>" // 글자 + 태그속성까지 적용
             //divEl.innerText = "<b>innerText로 속성값 변경함ㅋㅋ</b>"   // 글자 (태그속성 글자 그대로 적어버림)
-
+            
             divEl.style.backgroundColor = "yellow"
             divEl.style.color = "red"
-
+            
+            console.log(divEl.innerHTML) // innerHTML : 글자 + 태그까지 : 요소의 content 영역 안의 html 태그까지 모두 포함
         }
     </script>
 

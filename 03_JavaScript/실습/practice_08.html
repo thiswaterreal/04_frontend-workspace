@@ -21,10 +21,13 @@
         function insert() {
             
             const output = document.getElementById("output");
-            const m = document.getElementById("menu").value;
+            const m = document.getElementById("menu");
 
-            arr.push(m);
-            output.value = arr.join(", ");
+            arr.push(m.value);
+
+            m.value = "";
+
+            output.value = arr;
             
         }
 

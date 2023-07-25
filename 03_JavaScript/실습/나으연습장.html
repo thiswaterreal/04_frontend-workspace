@@ -5,18 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .area{
+        .area {
             border: 1px solid black;
-            width: 300px;
+            width: 500px;
             height: 100px;
+            background-color: lightgray;
         }
     </style>
+
 
 </head>
 <body>
     
-    <div id="area1" class="area" style="background-color: aquamarine;"></div>
-    <button>바껴라</button>
+   이름 : <input type="text" id="userName">
+   <button onclick="test()();">실행확인</button>
+
+   <script>
+
+    function test() {
+        const user = document.getElementById("userName");
+        return function() {
+            alert(user.value);
+        }
+    }
+
+   </script>
 
 
 </body>
