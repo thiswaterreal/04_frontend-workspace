@@ -54,16 +54,16 @@
     <div id="area2" class="area"></div>
 
     <script>
-        const btn = document.getElementById("btn");
+        const btnn = document.getElementById("btn");
 
-        btn.onclick = function() {  // btn 버튼이 클릭 되는 순간 요 함수가 실행
+        btnn.onclick = function() {  // btn 버튼이 클릭 되는 순간 요 함수가 실행
             document.getElementById("area2").innerHTML += "이벤트 핸들러를 통해 실행됨"
         }
         // 이름이 없어서 직접 호출 불가 (일회성)
         // 이벤트 속성에 대입되는 function == 이벤트 핸들러
     </script>
 
-    <hr>
+    <br><hr>
 
     <h2>함수의 매개변수</h2>
 
@@ -78,7 +78,7 @@
     <button onclick="test2('안녕하세요', '반갑습니다');">실행확인</button>
     <button onclick="test2(10, true, '안녕');">실행확인</button>
     
-    <!-- 정의해둔 매개변수 개수보다 더 적게 전달하는거 가능은 함.. 단, undefined -->
+    <!-- 정의해둔 매개변수 개수보다 더 적게 전달하는거 가능은 함.. 단, undefined (value를 주지 않았으니까) -->
     <button onclick="test2();">실행확인</button>
 
     <div id="area3" class="area"></div>
@@ -94,6 +94,118 @@
         }
     </script>
 
+    <br>
 
+    <h3>* 매개변수 관련 arguments 배열</h3>
+    <p>
+        함수 호출시 전달되는 값은 내부적으로 arguments 배열에 담김 <br>
+        * arguments : 모든 함수마다 내부적으로 하나씩 존재하는 배열 객체
+    </p>
+
+    <button onclick="test3(11,12,1,5,7);">실행확인</button>
+    <div id="area4" class="area"></div>
+
+    <script>
+
+        function test3() {
+            console.log(arguments);     // [11,12,1,5,7]
+            console.log(arguments[0]);  // 11
+
+            const area4 = document.getElementById("area4");
+
+            let sum = 0;
+            for(let i=0; i<arguments.length; i++) {
+                sum += arguments[i];
+            }
+            area4.innerHTML += "총합 : " + sum + "<br>";
+            area4.innerHTML += "평균 : " + sum/arguments.length + "<br>";
+        }
+
+    </script>
+
+    <br>
+
+    <h3>*** 매개변수에 this 관련 전달하기 ***</h3>
+
+    <!-- this : 현재 그 요소 객체 : 요소전체 출력됨-->
+    <button onclick="test4(this);">버튼1</button>
+    <!-- this : 현재 그 요소 객체 안 값(.innerHTML) : '버튼2' 출력 -->
+    <button onclick="test4(this.innerHTML);">버튼2</button>
+    <!-- this : 현재 그 요소 객체 안 값(.value) : '버튼3' 출력 -->
+    <input type="button" value="버튼3" onclick="test4(this.value);">
+    <!-- this : 현재 그 요소 객체 의 id 값(.id) : 'btn4' 출력 -->
+    <button id="btn4" onclick="test4(this.id);">버튼4</button>
+
+    <script>
+
+        function test4(a) {
+            console.log(a);
+        }
+
+    </script>
+
+    <br><br>
+
+    <button onclick="test5(this);">클릭</button>
+
+    <script>
+
+        function test5(el) {
+
+            console.dir(el);
+
+            el.style.backgroundColor = "red";
+            el.innerHTML = "클림됨요";
+        }
+
+    </script>
+
+    <br><br><hr>
+
+    <h2>함수의 리턴</h2>
+
+    <h3>* 일반적인 값 리턴</h3>
+
+    <button onclick="test6();">실행확인</button>    
+    <div id="area5" class="area"></div>
+
+    <script>
+
+        // 1~100 사이의 숫자 중 랜덤값 구해서 반환해주는 함수
+        function ran() {
+            const random = parseInt(Math.random() * 100 + 1);
+            return random;
+        } // return 값 일단 던져주기만함.. 실행하고싶으면 이 함수를 사용(실행)해야함!!
+
+        function test6() {
+            const area5 = document.getElementById("area5");
+            area5.innerHTML += "랜덤값 : " + ran() + "<br>";  // 함수 사용
+        }
+
+    </script>
+
+    <br>
+
+    <h3>* 익명함수를 리턴</h3>
+    이름 : <input type="text" id="userName">
+    <button onclick="test7()()/*함수 사용*/;">실행확인</button>
+
+    <script>
+
+        function test7() {
+            let inputEl = document.getElementById("userName");
+
+            //console.log(inputEl.value);
+            return function() {
+                alert(inputEl.value);
+            } // return 값 일단 던져주기만함.. 실행하고싶으면 이 함수를 사용(실행)해야함!!
+        }
+
+    </script>
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice_06</title>
+</head>
+<body>
+
+    <h1>배열 실습 문제1</h1>
+    <fieldset>
+        <legend>보기</legend>
+        사과, 바나나, 당근 <br>
+        김밥, 치즈, 떡볶이, 햄버거 <br>
+        환타, 사이다, 콜라 <br>
+        고양이, 강아지 <br>
+    </fieldset>
+    <input type="text" id="object"> <br>
+    <button onclick="sendProcess();">전송 및 처리</button>
+
+    <script>
+
+        function sendProcess() {
+            const arr = ["사과", "바나나", "당근", "김밥", "치즈", "떡볶이", "햄버거", "환타", "사이다", "콜라", "고양이", "강아지"];
+        
+            // const object = document.getElementById("object");
+            // const o = object.value;
+            
+            const o = document.getElementById("object").value;
+
+            alert(o + "는 배열 index" + arr.indexOf(o) + "번째에 존재합니다.");
+        }
+
+    </script>
+
+</body>
+</html>

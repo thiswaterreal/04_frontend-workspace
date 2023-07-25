@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice_07</title>
+</head>
+<body>
+    
+    <h1>배열 실습 문제2</h1>
+    <fieldset>
+        <legend>보기</legend>
+        r b <br>
+        e v o l<br>
+    </fieldset>
+    <input type="text" id="output">
+    <button onclick="process();">처리</button>
+
+    <script>
+        
+        function process() {
+            arr1 = ["r", "b"];
+            arr2 = ["e", "v", "o", "l"];
+
+            const output = document.getElementById("output");
+        
+            output.value = arr1.reverse().join("") + arr2.reverse().join("");
+        }
+
+    </script>
+
+</body>
+</html>
