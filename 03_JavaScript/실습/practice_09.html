@@ -16,7 +16,7 @@
     <h1>배열 실습 문제4</h1>
     <fieldset>
         <legend>보기</legend>
-        피자 치킨 당근 햄버거 떡볶이
+        <label id="food">피자 치킨 당근 햄버거 떡볶이</label>
     </fieldset>
     <input type="text" id="delete" placeholder="삭제할 음식이름을 입력하세요">
     <input type="text" id="insert" placeholder="추가할 음식이름을 입력하세요"> <br>
@@ -27,21 +27,27 @@
     <script>
 
         function process() {
+
             const result = document.getElementById("result");
+           
+            const arr = document.getElementById("food").innerHTML.split(" "); //**
+            //console.log(arr);
 
             const d = document.getElementById("delete").value;
             const i = document.getElementById("insert").value;
 
-            const arr = ["피자", "치킨", "당근", "햄버거", "떡볶이"];
-            
             //result.value = arr.indexOf(d);  //오케이~~ 인덱스값~~
 
-            result.value = arr.splice(arr.indexOf(d), 1, i) + "<br>"; // 뽑아서 반환해주고 (버리고, 추가해둠)
+            const index = arr.indexOf(d);
+
+            result.value = arr.splice(index, 1, i) + "<br>"; // 뽑아서 반환해주고 (버리고, 추가해둠)
             result.value = arr;
-        
+
         }
 
     </script>
+
+    
 
 
 </body>

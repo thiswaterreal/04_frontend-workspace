@@ -10,8 +10,8 @@
     <h1>배열 실습 문제2</h1>
     <fieldset>
         <legend>보기</legend>
-        r b <br>
-        e v o l<br>
+        <label id="la1">r b</label> <br>
+        <label id="la2">e v o l</label> <br>
     </fieldset>
     <input type="text" id="output">
     <button onclick="process();">처리</button>
@@ -19,12 +19,18 @@
     <script>
         
         function process() {
-            arr1 = ["r", "b"];
-            arr2 = ["e", "v", "o", "l"];
+
+            const la1 = document.getElementById("la1").innerHTML;
+            const arr1 = la1.split(" ").reverse();
+            //console.log(arr1);
+
+            const la2 = document.getElementById("la2").innerHTML;
+            const arr2 = la2.split(" ").reverse();
+            //console.log(arr2);
 
             const output = document.getElementById("output");
-        
-            output.value = arr1.reverse().join("") + arr2.reverse().join("");
+            output.value = arr1.join("") + arr2.join("");
+            
         }
 
     </script>

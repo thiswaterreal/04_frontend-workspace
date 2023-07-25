@@ -49,7 +49,7 @@
     <p>문제2. 다음 보기에 있는 문자열을 ,(콤마)를 기준으로 잘라내여 하나하나 출력하시오.</p>
     <fieldset>
         <legend>보기</legend>
-        콜라,사이다,햄버거,피자,한약
+        <label id="food">콜라,사이다,햄버거,피자,한약</label>
     </fieldset>
     <br>
     <div id="area2" class="area"></div>
@@ -61,7 +61,8 @@
         function sliceTest() {
             const area2 = document.getElementById("area2");
 
-            const arr = ["콜라", "사이다", "햄버거", "피자", "한약"];
+            const food = document.getElementById("food").innerHTML;
+            const arr = food.split(",");
 
             area2.innerHTML += "1." + arr.slice(0,1) + "<br>";
             area2.innerHTML += "2." + arr.slice(1,2) + "<br>";

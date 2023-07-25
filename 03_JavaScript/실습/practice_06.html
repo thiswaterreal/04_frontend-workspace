@@ -36,9 +36,13 @@
 
             const all = a1.concat(a2,a3,a4);
             
-            const search = document.getElementById("search").value;
+            //console.log(all);
 
-            alert(search + "는 배열 index" + all.indexOf(search) + "번째에 존재합니다.");
+            const search = document.getElementById("search").value;
+            
+            const index = all.indexOf(search);
+
+            alert(search + "는 배열 index" + index + "번째에 존재합니다.")
             
         }
 
