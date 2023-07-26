@@ -6,10 +6,12 @@
     <title>Document</title>
     <style>
         .area {
-            border: 1px solid black;
-            width: 500px;
+            width: 300px;
             height: 100px;
+            border: 1px solid black;
             background-color: lightgray;
+            color: red;
+            font-size: 48px;
         }
     </style>
 
@@ -17,20 +19,102 @@
 </head>
 <body>
     
-   이름 : <input type="text" id="userName">
-   <button onclick="test()();">실행확인</button>
+    <button onclick="test1();">네이버</button>
 
-   <script>
+    <script>
 
-    function test() {
-        const user = document.getElementById("userName");
-        return function() {
-            alert(user.value);
+        function test1() {
+            //open("http://www.naver.com");
+            //open("http://www.naver.com", "zz");
+            open("http://www.naver.com", "zz", "width=500, height=600");
+
         }
-    }
 
    </script>
 
+   <hr>
+
+   <button onclick="test2();">실행확인</button>
+
+   <script>
+
+        function test2() {
+            const myWindow = open();
+            //myWindow.alert("배고파")               // 새 창에 '배고파'알림창 뜸
+            //myWindow.document.write("배고파");   // 새 창에 '배고파'작성됨
+
+            myWindow.alert("곧 종료");
+
+            setTimeout(function() {
+                myWindow.open("http://www.naver.com")
+            }, 3000);
+        }
+
+   </script>
+
+   <hr>
+
+   <button onclick="test3();">실행확인</button>
+   <div id="area1" class="area"></div>
+
+   <script>
+    function test3() {
+        const area1 = document.getElementById("area1");
+
+        let count = 1;
+        setInterval(function() {
+            //area1.innerHTML = count++;
+
+            const now = new Date();
+            let hour = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+
+
+        }, 1000);
+    }
+   </script>
+
+    <button onclick="test4();">요소생성</button>
+    <div id="area2"></div>
+
+    <script>
+
+        function test4() {
+            
+            let elementNode = document.createElement("h1");
+            let textNode = document.createTextNode("배고파");
+
+            elementNode.appendChild(textNode);
+
+            const area2 = document.getElementById("area2");
+            area2.innerHTML = elementNode.appendChild(textNode).nodeValue;
+        
+            console.log(elementNode);
+        
+        }
+
+
+    </script>
+
+
+    <button id="btn">고전적</button>
+    <button id="btnn">고전적</button>
+    <div id="area3" class="area"></div>
+
+    <script>
+        const area3 = document.getElementById("area3");
+        document.getElementById("btn").onclick = function() {
+            area3.innerHTML += "내용들어가잇";
+            document.getElementById("btn").style.backgroundColor = "yellow"
+        
+        }
+
+        document.getElementById("btnn").onclick = function() {
+            area3.innerHTML += "1기능 이제 끝";
+            document.getElementById("btn").onclick = null;
+        }
+    </script>
 
 </body>
 </html>

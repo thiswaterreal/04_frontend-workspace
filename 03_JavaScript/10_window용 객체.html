@@ -20,7 +20,7 @@
     
     <h1>window 객체</h1>
     <p>
-        window 객체는 자바스크립트의 최상위 객체이며, 크게 BOM으로 나뉨 <br><br>
+        window 객체는 자바스크립트의 최상위 객체이며, 크게 BOM 과 DOM 으로 나뉨 <br><br>
 
         - BOM(Browser Object Model)     : location객체 (주소창 관련), screen 객체 (창과 관련), navigator객체(브라우저 관련), history객체(뒤로가기) <br>
         - DOM(Document Object Model)    : document객체
@@ -31,16 +31,18 @@
 
     <script>
         function test1() {
-            //window.open("http://www.naver.com");
+            //window.open("http://www.naver.com");  
 
             // window.open(첫번쨰, 두번째, 세번째);
             // 첫번째 : 새 창에서 열고자 하는 url 주소
             // 두번째 : 창이름, 창이름이 같은게 이미 열려있을 경우 새로이 열리지 않고 이미 열려있는 곳에서 새로고침
             // 세번째 : 새 창의 너비, 높이, 주소창여부, 툴바여부, 스크롤바여부 등 새로운 창의 특성 (브라우저마다 적용범위가 다름)
 
+            // 1.
             //window.open("http://www.naver.com");
             // 버튼 누른 수 만큼 새로운 창 나옴
 
+            // 2.
             //window.open("http://www.naver.com", "ㅋㅋ");
             // 버튼 누르면 첫 창 나온 후 => 계속 버튼 누르면 해당 창 새로고침됨
         
@@ -59,6 +61,7 @@
                 toolbar : 도구모음
             */
 
+            // 3.
             window.open("http://www.naver.com", "ㅋㅋ", "width=500, height=600");
             // 째꼬맣게 팝업창처럼 새로운 창 나옴
             // 공통 : 주소창 수정 안됨, toolbar 없음, 상태표시줄 없음, 메뉴바 없음
@@ -78,14 +81,17 @@
         function test2() {
             const myWindow = window.open();
             // myWindow 의 자료형 : window
-
-            //myWindow.alert("ㅋㅋㅋ");
+            
+            //myWindow.alert("배고파")             // 새 창에 '배고파'알림창 뜸
+            //myWindow.document.write("배고파");   // 새 창에 '배고파'작성됨
+            
             //myWindow.close();           // 확인 누르면 닫힘
-        
+
             myWindow.alert("3초 후에 이 페이지는 종료됩니다!");
 
             setTimeout(function() {
                 myWindow.close();
+                // myWindow.open("http://www.naver.com")
             }, 3000);
             // 내가 제시한 일정 시간 후에 해당 함수 '단 한번만' 실행
         
@@ -104,8 +110,8 @@
 
         function test3() {
             const area1 = document.getElementById("area1");
-            // 1초마다 카운트값 1씩 증가
 
+            // 1초마다 카운트값 1씩 증가
             let count = 1;
             setInterval(function() {
                 //area1.innerHTML = count++;  //찍고, 증가
@@ -214,21 +220,20 @@
 
             // 동적으로 요소 만드는 방법 2. document에서 제공하는 메소드를 통해 '요소객체'로 만드는 방법
             // ElementNode 객체 생성 : document.createElement("태그");
-            let elementNode = document.createElement("h3");        // <h3></h3>
+            let elementNode = document.createElement("h3");                // <h3></h3>
             // TextNode 객체 생성 : document.createTextNode("문구");
-            let textNode = document.createTextNode("안녕하세요");   // "안녕하세요"
+            let textNode = document.createTextNode("안녕하세요");          // "안녕하세요"
             
             // <h3>
             //     안녕하세요
             // </h3>
             
             // 두개의 노드 결합 (즉, 요소노드 하위로 텍스트노드 추가)
-            elementNode.appendChild(textNode);                     // <h3>안녕하세요</h3>
-        
-            //console.log(elementNode);
+            elementNode.appendChild(textNode);                        
+            //console.log(elementNode);                                    // <h3>안녕하세요</h3>
 
             // <div>
-            //     안녕하세요
+            //     <h3>안녕하세요</h3>
             // </div>
 
             //document.getElementById("area2").innerHTML = elementNode;   // "" <= 이거 없어서 문자열 안됨..*** [object HTMLHeadingElement] 나옴   
@@ -250,7 +255,7 @@
         function test5() {
             // <img src="" width="" height="">
 
-            let img = document.createElement("img");    //<img>
+            let img = document.createElement("img");    // <img>
 
             // 속성 추가
             img.src = "https://www.kh-academy.co.kr/resources/images/main/logo.svg"; // (이미지주소복사)

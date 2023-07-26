@@ -50,9 +50,11 @@
         // * btn2
         document.getElementById("btn2").onclick = function() {
             //area1.innerHTML += "btn2이 클릭되었습니다. <br>"
-            area1.innerHTML += "btn2이 클릭되면서 btn1 이벤트 제거됨 <br>"
-            document.getElementById("btn1").onclick = null; // btn1 이벤트 제거
+            area1.innerHTML += "btn2이 클릭 => 노랑버튼 => btn1 이벤트 제거됨 <br>"
+            document.getElementById("btn2").style.backgroundColor = "yellow"
+            document.getElementById("btn1").onclick = null; // btn1 이벤트 제거(이제 클릭해도 아무일도 일어나지않음)
         }
+       
 
     </script>
 
