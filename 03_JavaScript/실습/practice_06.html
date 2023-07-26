@@ -11,10 +11,10 @@
     <fieldset>
         <legend>보기</legend>
         
-        <p id="p1">사과, 바나나, 당근</p>
-        <p id="p2">김밥, 치즈, 떡볶이, 햄버거</p>
-        <p id="p3">환타, 사이다, 콜라</p>
-        <p id="p4">고양이, 강아지</p>
+        <p id="p1">사과,바나나,당근</p>
+        <p id="p2">김밥,치즈,떡볶이,햄버거</p>
+        <p id="p3">환타,사이다,콜라</p>
+        <p id="p4">고양이,강아지</p>
         
         </fieldset>
     <input type="text" id="search"> <br>
@@ -31,17 +31,16 @@
 
             const a1 = arr1.split(",");
             const a2 = arr2.split(",");
-            const a3 = arr2.split(",");
+            const a3 = arr3.split(",");
             const a4 = arr4.split(",");
 
             const all = a1.concat(a2,a3,a4);
-            
-            //console.log(all);
+            console.log(all);
 
             const search = document.getElementById("search").value;
-            
+           // console.log(search);
             const index = all.indexOf(search);
-
+            
             alert(search + "는 배열 index" + index + "번째에 존재합니다.")
             
         }

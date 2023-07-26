@@ -10,22 +10,33 @@
     <h1>배열 실습 문제3</h1>
     <fieldset>
         <legend>입력</legend>
-        <input type="text" id="menu">
+        <input type="text" id="continue">
         <button onclick="insert();">입력</button>
     </fieldset>
     <input type="text" id="output">
 
     <script>
 
-        const arr = []; // 밖으로 나가..버리고
+        const arr = []; // 밖으로 나가..버리고(전역)
         function insert() {
             
+            // const output = document.getElementById("output");
+            // let con = document.getElementById("continue").value;    // 밑에서 재할당할거니까 let으로
+
+            // arr.push(con);
+            
+            // //console.log(con);
+
+            // con = "";
+
+            // output.value = arr;
+
             const output = document.getElementById("output");
-            const m = document.getElementById("menu");
+            const con = document.getElementById("continue");    // 밑에서 재할당할거니까 let으로
 
-            arr.push(m.value);
+            arr.push(con.value);
 
-            m.value = "";
+            con.value = "";
 
             output.value = arr;
             

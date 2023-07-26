@@ -110,13 +110,71 @@
             }
 
             this.getAvg = function() {
-                return this.getSum / 5;
+                return this.getSum() / 5;
             }
         }
 
     </script>
 
+    <hr>
 
+    <h3>* Date 내장객체</h3>
+
+    <button onclick="test3();">실행확인</button>
+    <div id="area3" class="area"></div>
+
+    <script>
+
+        function test3() {
+            const area3 = document.querySelector("#area3");
+
+            // 현재 날짜 및 시간
+            const date1 = new Date();
+
+            // 2023년 05월 24일로 셋팅
+            const date2 = new Date(2023, 5-1, 24);
+
+            // 시,분,초 까지 셋팅
+            const date3 = new Date(2023, 5-1, 24, 15, 20, 30);
+
+            // 밀리세컨초 까지 셋팅
+            // 1s == 1000ms
+            // 5s == 5000ms
+            const date4 = new Date(2023, 5-1, 24, 15, 20, 30, 5000);
+
+            area3.innerHTML += "Date() : " + date1 + "<br>";
+            area3.innerHTML += "Date(년도,월,일) : " + date2 + "<br>";
+            area3.innerHTML += "Date(년도,월,일,시,분,초) : " + date3 + "<br>";
+            area3.innerHTML += "Date(년도,월,일,시,분,초,밀리세컨) : " + date4 + "<br>";
+        
+            area3.innerHTML += "년도 : " + date1.getFullYear() + "<br>";
+            area3.innerHTML += "월 : " + (date1.getMonth()+1) + "<br>";
+            area3.innerHTML += "일 : " + date1.getDate() + "<br>";
+            area3.innerHTML += "일 : " + date1.getDay() + "<br>";   // 3 == 수요일
+            // 시 : getHours(), 분 : getMinutes(), 초 : getSeconds()
+            
+            // d-day 계산시 많이 씀
+            // '종강알림이'
+            // 현재날짜부터 종강일(2023년 11월 6일)까지 남은 일수 d-day
+            const end = new Date(2023, 11-1, 6);
+            const now = new Date();
+
+            area3.innerHTML += (end - now);
+            // 현재날짜부터 종강날짜까지 몇 밀리세컨초 남았는지 알려주고 있음
+
+            /*
+                1s == 1000ms
+                1m == 60s == 60*1000ms
+                1h == 60m == 60*60s == 60*60*1000ms
+                1d == 24h == 24*60m ==24*60*60s == 24*60*60*1000ms
+            */
+
+            const dday = (end - now) / (24*60*60*1000);
+            alert("종강까지 " + Math.round(dday) + "일 남았습니다.")
+
+        }
+
+    </script>
 
 
 
