@@ -6,115 +6,151 @@
     <title>Document</title>
     <style>
         .area {
-            width: 300px;
-            height: 100px;
+            background-color: lightgrey;
             border: 1px solid black;
-            background-color: lightgray;
-            color: red;
-            font-size: 48px;
+            width: 500px;
         }
+
+        .small {height: 200px;}
+        .big {height: 400px;}
+
     </style>
-
-
 </head>
 <body>
     
-    <button onclick="test1();">네이버</button>
+    <h3>* 객체 생성 + 속성 접근</h3>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area big"></div>
 
     <script>
 
         function test1() {
-            //open("http://www.naver.com");
-            //open("http://www.naver.com", "zz");
-            open("http://www.naver.com", "zz", "width=500, height=600");
+            // * 배열
+            const arr = ["Dry Mango", 4000, "pickle", ["mango", "sugar"]];
+        
+            // * 객체
+            const product = {
+                pName : "Dry Mango",
+                price : 4000,
+                "kind" : "pickle",
+                ingredient : ["mango", "sugar"]
+            }
+            
+            const area1 = document.getElementById("area1");
+            area1.innerHTML += "product : " + product + "<br><br>";
+            // product : [object Object] <= toString 재정의 전!! 
 
+            // 객체 속성에 접근하기
+            // 방법1) 객체명["속성명"]
+            area1.innerHTML += "pName : " + product["pName"] + "<br>"
+            area1.innerHTML += "price : " + product["price"] + "<br>"
+            area1.innerHTML += "kind : " + product["kind"] + "<br>"
+            area1.innerHTML += "ingredient : " + product["ingredient"] + "<br>"
+            area1.innerHTML += "ingredient[0] : " + product["ingredient"][0] + "<br>"
+            area1.innerHTML += "ingredient[1] : " + product["ingredient"][1] + "<br><br>"
+            // 방법2) 객체명.속성명
+            area1.innerHTML += "pName : " + product.pName + "<br>"
+            area1.innerHTML += "price : " + product.price + "<br>"
+            area1.innerHTML += "kind : " + product.kind + "<br>"
+            area1.innerHTML += "ingredient : " + product.ingredient + "<br>"
+            area1.innerHTML += "ingredient[0] : " + product.ingredient[0] + "<br>"
+            area1.innerHTML += "ingredient[1] : " + product.ingredient[1] + "<br>"
         }
 
-   </script>
+    </script>
 
-   <hr>
+    <hr>
 
-   <button onclick="test2();">실행확인</button>
+    <h3>* 특이케이스 의 속성 접근 : 대괄호 접근만 가능</h3>
+    <button onclick="test2();">실행확인</button>
+    <div id="area2" class="area small"></div>
 
-   <script>
+    <script>
 
         function test2() {
-            const myWindow = open();
-            //myWindow.alert("배고파")               // 새 창에 '배고파'알림창 뜸
-            //myWindow.document.write("배고파");   // 새 창에 '배고파'작성됨
+            // * 특이한 객체 (공백,기호 포함)
+            const user = {
+                "user name" : "문동은",
+                "age!!" : 20
+            }
 
-            myWindow.alert("곧 종료");
-
-            setTimeout(function() {
-                myWindow.open("http://www.naver.com")
-            }, 3000);
+            const area2 = document.getElementById("area2");
+            area2.innerHTML += "user name : " + user["user name"] + "<br>"
+            area2.innerHTML += "age!! : " + user["age!!"] + "<br>"
         }
 
-   </script>
+    </script>
 
-   <hr>
+    <hr>
 
-   <button onclick="test3();">실행확인</button>
-   <div id="area1" class="area"></div>
+    <h3>* 객체 반복문 의 속성 접근 : 대괄호 접근만 가능</h3>
+    <button onclick="test3();">실행확인</button>
+    <div id="area3" class="area small"></div>
 
-   <script>
-    function test3() {
-        const area1 = document.getElementById("area1");
+    <script>
 
-        let count = 1;
-        setInterval(function() {
-            //area1.innerHTML = count++;
-
-            const now = new Date();
-            let hour = now.getHours();
-            let min = now.getMinutes();
-            let sec = now.getSeconds();
+        function test3() {
+            const area3 = document.getElementById("area3");
 
 
-        }, 1000);
-    }
-   </script>
 
-    <button onclick="test4();">요소생성</button>
-    <div id="area2"></div>
+            // * 배열 반복문
+            const arr = ["문동은",10, true];
+
+            for(let i in arr) {
+                area3.innerHTML += arr[i] + "<br>";
+            }
+            // i=0, i=1, ...
+
+            area3.innerHTML += "<br>";
+
+
+
+            // * 객체 반복문
+            const game = {
+                title:"오버워치",
+                price:35000,
+                language:"한국어 지원",
+                company:"블리자드"
+            };
+
+            for(let k in game) {
+                // area3.innerHTML += k + " : " + game.k + "<br>";      // undefined
+                area3.innerHTML += k + " : " + game[k] + "<br>";
+            }
+            //   k    in game
+            // 속성명 in 객체
+            // 객체 반복문 돌릴때, in 객체 제시시 '변수(k)'에 '속성명'이 담김
+        }
+
+    </script>
+
+    <h3>* 객체의 속성 중 메소드(함수)</h3>
+    <button onclick="test4();">실행확인</button>
+    <div id="area4" class="area small"></div>
 
     <script>
 
         function test4() {
+            const area4 = document.getElementById("area4");
+
+            const name = "이수진";
             
-            let elementNode = document.createElement("h1");
-            let textNode = document.createTextNode("배고파");
+            const dog = {
+                name : "둥이",
+                kind : "리트리버",
+                eat : function(food) {
+                    // area4.innerHTML += kind + "종인 " + name + "가 " + food + "를(을) 먹고 있어요. <br>"     // 불가능
+                    area4.innerHTML += this.kind + "종인 " + this.name + "가 " + food + "를(을) 먹고 있어요. <br>"
+                }
+            };
 
-            elementNode.appendChild(textNode);
-
-            const area2 = document.getElementById("area2");
-            area2.innerHTML = elementNode.appendChild(textNode).nodeValue;
-        
-            console.log(elementNode);
-        
+            dog.eat("사료");
         }
-
 
     </script>
 
 
-    <button id="btn">고전적</button>
-    <button id="btnn">고전적</button>
-    <div id="area3" class="area"></div>
-
-    <script>
-        const area3 = document.getElementById("area3");
-        document.getElementById("btn").onclick = function() {
-            area3.innerHTML += "내용들어가잇";
-            document.getElementById("btn").style.backgroundColor = "yellow"
-        
-        }
-
-        document.getElementById("btnn").onclick = function() {
-            area3.innerHTML += "1기능 이제 끝";
-            document.getElementById("btn").onclick = null;
-        }
-    </script>
 
 </body>
 </html>
