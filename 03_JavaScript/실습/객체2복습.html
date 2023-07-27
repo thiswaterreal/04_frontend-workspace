@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            border: 1px solid black;
+            background-color: rgb(154, 253, 172);
+            width: 500px;
+            height: 250px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <h3>* 객체 + 배열 을 사용한 다량의 데이터 관리</h3>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+
+        function test1() {
+            // 객체생성
+            const student0 = {name:"문동은", java:100, oracle:90, html:90, css:60};
+            const student1 = {name:"박연진", java:60, oracle:100, html:80, css:70};
+            const student2 = {name:"이사라", java:70, oracle:80, html:100, css:50};
+            const student3 = {name:"전재준", java:100, oracle:60, html:80, css:50};
+        
+            // 배열생성
+            const students = [];
+
+            // 배열에 <= 객체 담기
+            students.push(student0);
+            students.push(student1);
+            students.push(student2);
+            students.push(student3);
+            //students.push("name:이수쟌");     push는 배열에 <= 담담
+
+            console.log(students);
+
+            const area1 = document.getElementById("area1");
+            area1.innerHTML = students[0];
+            // 배열안에 담긴게 문자열이면 그냥 찍히는데
+            // 배열안에 담긴게 객체여서 object Object 나오나? 값 출력하려면 객체반복문 돌려?
+
+
+
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>
