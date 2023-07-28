@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="resources/js/jquery-3.7.0.min.js"></script>
+    <style>
+        .test99 {
+            background-color: purple;
+        }
+    </style>
+
+</head>
+<body>
+    <h3>* 자손선택자(>) 와 후손선택자( )</h3>
+    
+    <div style="border: 1px solid black;">
+        <ul>자손1
+            <li>div의 후손이면서 ul의 자손1</li>
+            <li>div의 후손이면서 ul의 자손2</li>
+            <li class="ch">div의 후손이면서 ul의 자손3</li>
+            <li class="ch">div의 후손이면서 ul의 자손4</li>
+            <li>
+                <h3>div/ul의 후손이면서 li의 자손</h3>
+            </li>
+        </ul>
+        <h3>자손2</h3>
+        <h3 class="ch">자손3</h3>
+    </div>
+
+    <script>
+
+        // $(function() {} == 모든 요소가 다 그려진 뒤 실행해라 뜻
+        $(function() {
+            $("div>h3").css("color", "lightblue");
+            $("div h3").css("backgroundColor", "violet");
+
+            // $("li>h3")
+            // $("ul h3")
+            $("ul>li>h3").css("color", "red");
+
+            // $("li.ch")
+
+            // 1) 따로 따로 css 메소드 호출
+            // $("ul>.ch").css("backgroundColor", "yellow");
+            // $("ul>.ch").css("color", "pink");
+
+            // 2) 연이어서 css 메소드 호출
+            // $("ul>.ch").css("backgroundColor", "yellow").css("color", "pink");
+
+            // 3) css 메소드 한번만 호출
+            $("ul>.ch").css({backgroundColor:"yellow", color:"pink"})
+        })
+
+    </script>
+
+    <hr>
+
+    <h3>* 속성 선택자</h3>
+    <p>
+        선택자[속성]            : 특정 속성을 가지고 있는 모든 요소 선택 <br>
+        선택자[속성=특정값]     : 속성값이 특정값과 '일치'하는 모든 요소 선택 <br>
+        선택자[속성~=특정값]    : 속성값에 특정값을 '단어로써 포함' 하는 모든 요소 선택 <br>
+        선택자[속성^=특정값]    : 속성값이 특정값으로 '시작'하는 요소 선택 <br>
+        선택자[속성$=특정값]    : 속성값이 특정값으로 '끝'나는 요소 선택 <br>
+        선택자[속성*=특정값]    : 속성값에 특정값을 '포함'하는 요소 선택 <br>
+    </p>
+
+    <input type="text"> <br>
+    <input type="number" class="test test1"> <br>
+    <input type="radio"> <br>
+    <input type="checkbox"> <br>
+    <input type="button" value="button" class="test2"> <br>
+
+    <script>
+
+        $(function() {
+            $("input[class]").css("backgroundColor","red");
+            $("input[type=text]").val("change value");
+            // .val() : 선택된 요소의 .value 속성과 관련된 기능 수행
+            $("input[class~=test]").val("123"); // 단어로써 포함되기 때문에 test1, test2 는 아님
+            $("input[type^=ra]").attr("checked", true);
+            $("input[type$=box]").attr("checked", true);
+            // $("input[class*=st2]").css({width:"100px", height:"100px"});
+            // $("input[class*=st2]").val("왕버튼");
+            // 메소드 체이닝 (==한방에)
+            $("input[class*=st2]").css({width:"100px", height:"100px"}).val("왕버튼");
+
+            // .innerHTML   => .html()
+            // .value       => .val()
+            // .style       => .css()
+            // .그 외 속성   => .attr()
+
+        })
+
+    </script>
+
+    <hr>
+
+    <h3>* 입력 양식 선택자(input태그의 type속성에 따라서 요소 선택)</h3>
+    
+    텍스트상자 : <input type="text"> <br>
+    일반버튼 : <input type="button"> <br>
+    체크박스 : <input type="checkbox"> <br>
+    첨부파일 : <input type="file"> <br>
+    비밀번호 : <input type="password"> <br>
+    라디오버튼 : <input type="radio"> <br>
+    초기화버튼 : <input type="reset"> <br>
+    제출버튼 : <input type="submit"> <br>
+
+    <script>
+
+        $(function() {
+            $(":text").css("backgroundColor", "red");
+            $(":button").css({width:"100px", height:"100px"}).val("왕버튼");
+            $(":checkbox").attr("checked", false);
+
+            // 첨부파일 : 배경색을 연두색으로
+            $(":file").css("backgroundColor", "yellowgreen");
+
+            // 비밀번호 : 배경색을 노랑색으로
+            $(":password").css("backgroundColor", "yellow");
+
+            // 라디오버튼 : check 풀기. 가로길이 50px 세로길이 50px
+            $(":radio").attr("checked", false).css({width:"50px", height:"50px"});
+
+            // 초기화버튼 : 배경색을 파랑색으로, 글자색을 흰색으로, 테두리 없애기, 문구를 취소로 변경
+            // $(":reset").css("backgroundColor", "blue").css("color", "white").css("border", "none").val("취소")
+            $(":reset").css({backgroundColor:"blue", color:"white", border:"none"}).val("취소");
+
+            // 제출번호 : 클릭시 alert("ㅋㅋㅋ"); 실행되도록
+            $(":submit").click(function() {
+                // alert($(":password").val());     // 입력한 비밀번호를 띄워줌 .val() <= 해당 요소의 value값 반환함
+                // alert($(":text").val());         // input type=text 가 여러 개인 경우 첫번째 요소의 value값(change value) 가져옴
+                alert($(":text").eq(1).val());      // .eq(인덱스) 를 줘서 내가 원하는 input type=text value값 가져올 수 있음
+            })
+
+            // mouseenter : 선택된 요소의 경계 내부로 마우스가 들어가는 순간 발생하는 이벤트
+            $(":submit").mouseenter(function() {
+                // $(this).css("backgroundColor", "purple");
+                $(this).addClass("test99");
+                // .addClass() : 선택된 요소에 클래스를 추가해주는 메소드
+            })
+            // mouseout : 선택된 요소의 경계외부로 마우스가 나갈 때 발생하는 이벤트
+            $(":submit").mouseout(function() {
+                // $(this).css("backgroundColor", "");  // "" == 원상복귀
+                $(this).removeClass("test99");          // 원상복귀
+                // .removeClass() : 선택된 요소의 클래스를 제거해주는 메소드
+            })
+
+        })
+
+    </script>
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
