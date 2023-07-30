@@ -212,9 +212,7 @@
     <br>
 
     <button onclick="testPrompt2();">숫자입력(입력만큼 목록 만들어줌)</button>
-    <ul id="area4">
-
-    </ul>
+    <ul id="area4"></ul>
 
     <script>
         function testPrompt2() {
@@ -246,6 +244,55 @@
 
             // 한줄로 요약
             //document.getElementById("area4").innerHTML = str;
+        }
+    </script>
+
+    <p>수쟌의 연습</p>
+
+    <!--
+    <ul>
+        <li></li>
+        <li></li>
+        ...
+    </ul>
+    -->
+    
+    <!-- 방법1) -->
+    <button onclick="test1();">목록맹글어요1 (ul버전)</button>
+    <ul id="ulul"></ul>
+
+    <script>
+        function test1() {
+            const num = prompt("목록 몇개를 만들까요?");
+
+            const ulul = document.getElementById("ulul");
+
+            for(let i=1; i<=num; i++) {
+                ulul.innerHTML += "<li>" + i + "</li>";
+            }
+        }   
+    </script>
+
+    <!-- 방법2) -->
+    <button onclick="test2();">목록맹글어요2 (div버전)</button>
+    <div id="ulul"></div>
+
+    <script>
+        function test2() {
+            const num = prompt("목록 몇개를 만들까요?");
+
+            let a = "<ul>";
+            for(let i=1; i<=num; i++) {
+                a += "<li>목록" + i + "</li>"
+            }
+            a += "</ul>"
+            
+            // 현재 창에서..
+            // const ulul = document.getElementById("ulul");
+            // ulul.innerHTML += a;
+
+            // 새로운 창에서..
+            document.write(a);
         }
     </script>
 

@@ -55,8 +55,10 @@
             // (시작인덱스) ~ (끝인덱스)전!! 까지 잘라줌    
             
             const str2 = "사과,바나나,복숭아,키위"
-            const fruits = str2.split(",")  // ["사과", "바나나", "복숭아", "키위"]
-
+            const fruits = str2.split(",")
+            // * split : 문자열을 내가 지정한 구분자를 기준으로 쪼개줌
+            //  => 쪼갠 것들을 하나의 배열 안에 담아
+            // fruits == ["사과", "바나나", "복숭아", "키위"]
             area1.innerHTML += "fruits : " + fruits + "<br>" // 배열 => 컴마(,) 로 구분해서 다 나옴
             area1.innerHTML += "fruits의 자료형 : " + typeof(fruits) + "<br>"
 

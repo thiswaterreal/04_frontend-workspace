@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--
+    <ul>
+        <li></li>
+        <li></li>
+        ...
+    </ul>
+    -->
+
+    <!-- 방법1) -->
+    <button onclick="test1();">목록맹글어요1</button>
+    <ul id="ulul"></ul>
+
+    <script>
+        function test1() {
+            const num = prompt("목록 몇개를 만들까요?");
+
+            const ulul = document.getElementById("ulul");
+
+            for(let i=1; i<=num; i++) {
+                ulul.innerHTML += "<li>" + i + "</li>";
+            }
+        }   
+    </script>
+
+    <!-- 방법2) -->
+    <button onclick="test2();">목록맹글어요2</button>
+    <div id="ulul"></div>
+
+    <script>
+        function test2() {
+            const num = prompt("목록 몇개를 만들까요?");
+
+            let a = "<ul>";
+                for(let i=1; i<=num; i++) {
+                    a += "<li>목록" + i + "</li>"
+                }
+                a += "</ul>"
+                
+            // const ulul = document.getElementById("ulul");
+            // ulul.innerHTML += a;
+
+            document.write(a);
+        }
+    </script>
+
+    <div id="area2" class="area" style="background-color: lightgreen;"></div>
+    <button onclick="changeColor();">클릭마다 색 변경</button>
+
+    <script>
+
+        function changeColor() {
+            const area2 = document.getElementById("area2");
+
+            if(area2.style.backgroundColor == "lightgreen") {
+                area2.style.backgroundColor = "tomato";
+            }else if(area2.style.backgroundColor == "tomato") {
+                area2.style.backgroundColor = "violet";
+            }else {
+                area2.style.backgroundColor = "lightgreen";
+            }
+        }
+
+    </script>
+
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+    <button onclick="accessTagName();">태그명으로 접근</button>
+
+    <script>
+
+        function accessTagName() {
+            const list = document.getElementsByTagName("li");
+            
+            let blueColor = 150;
+            for(var i=0; i<list.length; i++) {
+                list[i].innerHTML = "바껴라ㅎㅎ";
+                list[i].style.backgroundColor = "rgb(130, 220," + blueColor + ")";
+                blueColor += 30;
+            }
+        }
+
+    </script>
+
+    <h3>3) name 속성값을 이용해서 요소 가져오기</h3>
+    <form action="">
+        <fieldset>
+            <legend>취미</legend>
+
+            <input type="checkbox" id="game" name="hobby" value="game">
+            <label for="game">게임</label>
+
+            <input type="checkbox" id="movie" name="hobby" value="movie">
+            <label for="movie">영화감상</label>
+
+            <input type="checkbox" id="reading" name="hobby" value="reading">
+            <label for="reading">독서</label>
+
+            <input type="checkbox" id="sports" name="hobby" value="sports">
+            <label for="sports">운동</label>
+
+        </fieldset>
+
+    </form>
+
+    <br>
+
+    <!--원본-->
+    <textarea class="area" id="area3" cols="30" rows="10"></textarea> <br>
+
+    <button onclick="accessName();">name으로 접근</button>
+    <button onclick="reset();">초기화</button>
+
+    <script>
+        
+        function accessName() {
+            // const area3 = document.getElementById("area3");
+            
+            const hobby = document.getElementsByName("hobby");  // hobby 는 현재 배열
+
+            for(let i=0; i<hobby.length; i++) {
+                if(hobby[i].checked) {
+                    area3.value += hobby[i].value + "\n";   // 주의!!) textarea 는 .value(o) .innerHTML(x)   //   "\n"(o) "<br>"(x)
+                }
+            }
+        }
+
+        function reset() {
+            area3.value = "";   // (띠용) area3선택하는 구문 막았는데.. 왜 돼..?
+        }
+
+    </script>
+
+
+    <!--div로 실험-->
+    <!-- <div id="area3" class="area"></div>
+    <button onclick="accessName();">name으로 접근</button>
+    <button onclick="reset();">초기화</button>
+
+    <script>
+        
+        function accessName() {
+            // const area3 = document.getElementById("area3");
+            
+            const hobby = document.getElementsByName("hobby");  // hobby 는 현재 배열
+
+            for(let i=0; i<hobby.length; i++) {
+                if(hobby[i].checked) {
+                    area3.innerHTML += hobby[i].value + "<br>";   // 주의!!) textarea 는 .value(o) .innerHTML(x)   //   "\n"(o) "<br>"(x)
+                }
+            }
+        }
+
+        function reset() {
+            area3.innerHTML = "";   // area3선택하는 구문 막았는데.. 왜 돼..? div도 되는데..??
+        }
+
+    </script> -->
+
+    <h3>5) 내가 원하는 요소 자유자재로 가져오기 (선택자를 활용)</h3>
+
+    <div id="test1">테스트입니다.</div>
+    <div class="test">
+        <h2>안녕</h2>
+        <h2>잘가</h2>
+    </div>
+    <span>ㅋㅋㅋ</span>
+    <h2>빠이</h2>
+
+    <br>
+
+    <button onclick="accessSelector();">클릭</button>
+
+    <script>
+        function accessSelector() {
+           
+            var hEl = document.querySelectorAll("h2")[0];   // 빠이
+            console.log(hEl.innerHTML);
+
+            // (띠용) h2인 안녕,잘가,빠이 모두를 한번에 콘솔에 찍으려면 ??
+
+        }
+    </script>
+
+    <br><br>
+
+    <button onclick="stringTest();">문자열처리메소드</button>
+        <div id="area1" class="area"></div>
+
+        <script>
+            function stringTest() {
+                const str = "사과,바나나,복숭아,키위"
+
+                const fruitsArr = str.split(",");
+                
+                area1.innerHTML = fruitsArr;
+            }
+        </script>
+
+
+</body>
+</html>

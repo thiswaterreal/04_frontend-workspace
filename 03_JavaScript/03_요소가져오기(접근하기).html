@@ -42,19 +42,26 @@
 
     <br><br>
 
-    <div id="area2" class="area" style="background-color: red;"></div>
+    <div id="area2" class="area" style="background-color: lightgreen;"></div>
     <button onclick="changeColor();">클릭마다 색 변경</button>
 
     <script>
         function changeColor() {
+            /*
             var area2 = document.getElementById("area2")
-
-            //console.log(area2.style.backgroundColor)
-
             if(area2.style.backgroundColor == "red") {
                 area2.style.backgroundColor = "yellow";
             }else {
                 area2.style.backgroundColor = "red";
+            }
+            */
+            const area2 = document.getElementById("area2");
+            if(area2.style.backgroundColor == "lightgreen") {
+                area2.style.backgroundColor = "tomato";
+            }else if(area2.style.backgroundColor == "tomato") {
+                area2.style.backgroundColor = "violet";
+            }else {
+                area2.style.backgroundColor = "lightgreen";
             }
         }
     </script>
@@ -86,15 +93,12 @@
 
             //list[0].innerHTML = "안녕하세요";   // 변경도 가능
             
-            var blueColor = 50;
+            let blueColor = 150;
             for(var i=0; i<list.length; i++) {
-                list[i].innerHTML = "안녕하세요";
-                //list[i].style.backgroundColor = "yellow";
+                list[i].innerHTML = "바껴라ㅎㅎ";
                 list[i].style.backgroundColor = "rgb(130, 220," + blueColor + ")";
-                blueColor += 50;
+                blueColor += 30;
             }
-
-
         }
     </script>
 
@@ -133,19 +137,18 @@
         function accessName() {
             // name 속성값으로 요소 가져올 때
             // document.getElementsByName("name 속성값") => 선택된 요소들이 배열에 담겨서 반환
-            var hobby = document.getElementsByName("hobby")     // 배열 담아(4개) [input요소객체, input요소객체, ..]
+            var hobby = document.getElementsByName("hobby")   // hobby는 현재 배열!!  [input요소객체, input요소객체, ..]
         
-            //console.log(hobby);
+            console.log(hobby);
 
             for(var i=0; i<hobby.length; i++) {
                 //console.log(hobby[i].checked);  // true, false
                 if(hobby[i].checked) {
-                    //console.log(hobby[i].value);    // 체크가 된거면 그 요소의 value 뽑아라
+                    area3.value += hobby[i].value + "\n";
+                    // *주의!!* textarea 방식 (.value  \n)
 
-                    // textarea 방식 (.value  \n)
-                    area3.value += hobby[i].value + "\n"
-                    // div 방식 (.innerHTML  <br>)
-                    //area3.innerHTML += hobby[i].value + "<br>"
+                    //area3.innerHTML += hobby[i].value + "<br>";
+                    //            div 방식 (.innerHTML  <br>)
                 }
             }
 
@@ -217,11 +220,11 @@
             // document.querySelector("선택자")     => 선택된 요소객체 하나만 반환
             // document.querySelectorAll("선택자")  => 선택된 요소객체들을 배열에 담아서 반환
 
-            var divEl = document.querySelector("#test1")        // div 요소 객체..들어있움
-            var h2El = document.querySelectorAll(".test>h2")    // 안녕, 잘가 [h2요소객체, h2요소객체] 
+            var divEl = document.querySelector("#test1");        // div 요소 객체..들어있움
+            var h2El = document.querySelectorAll(".test>h2");   // 안녕, 잘가 [h2요소객체, h2요소객체] 
             // 클래스선택자, 형제선택자 활용하여 span
-            var spanEl = document.querySelector(".test+span")   // span 요소 객체
-            var hEl = document.querySelectorAll("h2")[2]        // 빠이
+            var spanEl = document.querySelector(".test+span");   // span 요소 객체
+            var hEl = document.querySelectorAll("h2")[2];        // 빠이
 
             console.log(divEl.innerHTML);
 
@@ -231,7 +234,6 @@
 
             console.log(spanEl.innerHTML);
             console.log(hEl.innerHTML);
-
 
         }
     </script>
