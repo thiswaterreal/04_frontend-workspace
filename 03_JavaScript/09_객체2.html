@@ -23,13 +23,15 @@
     
     <script>
 
-        function test1() {  // 객체생성
+        function test1() {  
+            // 객체생성
             const student0 = {name:"문동은", java:100, oracle:90, html:90, css:60};
             const student1 = {name:"박연진", java:60, oracle:100, html:80, css:70};
             const student2 = {name:"이사라", java:70, oracle:80, html:100, css:50};
             const student3 = {name:"전재준", java:100, oracle:60, html:80, css:50};
         
-            const students = [];  // 배열생성
+            // 배열생성
+            const students = [];  
             
             students.push(student0);   // 배열에 <= 객체 담기
             students.push(student1);
@@ -96,6 +98,7 @@
         }
 
         function Student(name, java, oracle, html, css, javascript) {   // 자바에서 매개변수생성자 느낌
+           
             // 일반속성 정의
             this.name = name;
             this.java = java;
@@ -160,7 +163,7 @@
             const now = new Date();
 
             area3.innerHTML += (end - now);
-            // 현재날짜부터 종강날짜까지 몇 밀리세컨초 남았는지 알려주고 있음
+            // 현재날짜부터 종강날짜까지를.. 몇 밀리세컨초 단위로 알려주고 있음
 
             /*
                 1s == 1000ms
