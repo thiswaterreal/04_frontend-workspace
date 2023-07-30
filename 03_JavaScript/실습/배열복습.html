@@ -132,11 +132,11 @@
             const arr = ["서초동", "뱅배동", "역삼동", "삼성동", "대치동"];
 
             area6.innerHTML += arr + "<br>";
-            area6.innerHTML += arr.pop() + "<br>";  // 제거할 "대치동" 반환
+            area6.innerHTML += arr.pop() + "<br>";  // 제거한 "대치동" 반환
             area6.innerHTML += arr + "<br>";
             
-            arr.pop();  // ("대치동" 제거)
             arr.pop();  // ("삼성동" 제거)
+            arr.pop();  // ("역삼동" 제거)
             area6.innerHTML += arr + "<br>";
             // 원본 바뀜
         }
@@ -182,7 +182,7 @@
             const arr = ["당구", "야구", "볼링", "테니스"];
 
             area8.innerHTML = arr + "<br>";
-            area8.innerHTML += arr.shift() + "<br>";  // 제거할 "당구" 반환;
+            area8.innerHTML += arr.shift() + "<br>";  // 제거한 "당구" 반환;
             area8.innerHTML += arr + "<br>";
 
             arr.shift();  // ("야구" 제거)
@@ -283,6 +283,7 @@
             area12.innerHTML += arr.join() + "<br>";
             // join 은 기본적으로 ','로 연이어줌. 따라서 위아래 똑같음
             area12.innerHTML += arr.join(" ") + "<br>";
+            area12.innerHTML += arr.join("") + "<br>";
             // 직접 구분자 제시하여 구분!!
             // 원본 안바뀜
         }

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            background-color: lightgrey;
+            border: 1px solid black;
+            width: 500px;
+        }
+
+        .small {height: 200px;}
+        .big {height: 400px;}
+
+    </style>
+
+</head>
+<body>
+    
+    <h3>* 배열 반복문</h3>
+    <h3>* 객체 반복문 (대괄호 접근만 가능)</h3>
+    <h3>* 배열 in 객체 반복문</h3>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area small"></div>
+
+    <script>
+
+        function test1() {
+            const area1 = document.getElementById("area1");
+
+
+
+            // **************** 배열 반복문 ****************
+            const arr = ["문동은",10, true];
+
+            for(let i in arr) { // i=0, i=1, ...
+                area1.innerHTML += arr[i] + "<br>";
+            }
+    
+            area1.innerHTML += "<br>";
+
+
+
+            // **************** 객체 반복문 ***************
+            const game = {title:"오버워치", price:35000, language:"한국어 지원", company:"블리자드"};
+            /*
+            const game = {
+                title:"오버워치",
+                price:35000,
+                language:"한국어 지원",
+                company:"블리자드"
+            };
+            */
+
+            for(let k in game) {
+                area1.innerHTML += k + " : " + game[k] + "<br>";
+            }
+            //   k    in game
+            // 속성명 in 객체
+            // 객체 반복문 돌릴때, in 객체 제시시 '변수(k)'에 '속성명'이 담김
+        
+            area1.innerHTML += "<br>";
+            
+
+            
+            // **************** 배열 in 객체 반복문 ***************
+            const students = [
+                {name:"문동은", java:100, oracle:90, html:90, css:60},
+                {name:"박연진", java:60, oracle:100, html:80, css:70},
+                {name:"이사라", java:70, oracle:80, html:100, css:50},
+                {name:"전재준", java:100, oracle:60, html:80, css:50}
+            ];
+
+            for(let i in students) {
+                // area1.innerHTML += students[i];   object Object 만 4번찍힘
+                area1.innerHTML += "name : " + students[i].name + ", ";
+                area1.innerHTML += "java : " + students[i].java + ", ";
+                area1.innerHTML += "oracle : " + students[i].oracle + ", ";
+                area1.innerHTML += "html : " + students[i].html + ", ";
+                area1.innerHTML += "css : " + students[i].css + "<br>";
+            }
+
+
+
+        
+        }
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

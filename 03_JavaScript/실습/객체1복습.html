@@ -113,6 +113,7 @@
                 language:"한국어 지원",
                 company:"블리자드"
             };
+            // const game = {title:"오버워치", price:35000, language:"한국어 지원", company:"블리자드"};
 
             for(let k in game) {
                 // area3.innerHTML += k + " : " + game.k + "<br>";      // undefined
@@ -142,14 +143,99 @@
                 eat : function(food) {
                     // area4.innerHTML += kind + "종인 " + name + "가 " + food + "를(을) 먹고 있어요. <br>"     // 불가능
                     area4.innerHTML += this.kind + "종인 " + this.name + "가 " + food + "를(을) 먹고 있어요. <br>"
+                    // 메소드 속성에서 같은 객체 내의 속성에 접근하고자 한다면 this. 붙여야됨
                 }
             };
 
             dog.eat("사료");
+            dog.eat("물");
+            // window.alert("ㅋㅋ");  이거와 같은 맥락
+            // 객체.메소드("매개변수")
         }
 
     </script>
 
+    <hr>
+
+    <h3>* toString재정의 / in 과 with 키워드</h3>
+    <p>
+        in : 객체 내에 해당 속성이 <b>존재</b>하는지 확인해주는 키워드 (존재하면 true, 아니면 false 반환) <br>
+        with : 객체의 속성 접근시 <b>객체명</b> 제시하는걸 생략할 수 있음 (코드를 줄여주는 메소드)
+    </p>
+
+    이름 : <input type="text" id="name"> <br>
+    국어 : <input type="number" id="kor"> <br>
+    수학 : <input type="number" id="math"> <br>
+    영어 : <input type="number" id="eng"> <br><br>
+
+    <button onclick="test5();">실행확인</button>
+    <div id="area5" class="area big"></div>
+
+    <script>
+
+        function test5() {
+            
+            // 객체 생성 (일반속성 + 메소드속성)
+            const student = {
+                name : document.getElementById("name").value,
+                kor : Number(document.getElementById("kor").value), // "70" => 70
+                math : Number(document.getElementById("math").value),
+                eng : Number(document.getElementById("eng").value),
+                toString : function() { // * toString 재정의!!
+                    // return "안녕";
+                    return this.name + " " + this.kor + " " + this.math + " " + this.eng;
+                },
+                getSum : function() {
+                    return this.kor + this.math + this.eng;
+                },
+                getAvg : function() {
+                    return this.getSum()/3;    // 함수 가져올땐 this.함수명()
+                }
+            };
+
+            //------------------------------------------------------------------------------------------------------
+            
+            const area5 = document.getElementById("area5");
+            area5.innerHTML += "student : " + student/*.toString*/ + "<br>";
+            // * toString
+            // > (원래) student : [object Object] => 객체니까 이 중 어떤 속성값을 원하는지 말안하면 모름. 재정의!! 해주자
+            // > (메소드로 만들어두기만 했다면) student : undefined
+            // > (return 값 작성까지 완료!!) student : return 값
+            
+            //------------------------------------------------------------------------------------------------------
+            
+            // *in*
+            // '속성명' in 객체명 : 객체에 해당 속성이 존재할 경우 true, 아니면 false 반환
+            area5.innerHTML += "name 속성이 있나요 : " + ("name" in student) + "<br>";
+            area5.innerHTML += "age 속성이 있나요 : " + ("age" in student) + "<br>";
+
+            // 객체 for in문 돌리기 => 잘되다가..메소드부분은 출력불가..
+            // for(let k in student) {
+            //     area5.innerHTML += k + " : " + student[k] + "<br>";
+            // }
+            
+            // 따라서, 하나씩 넣어줌
+            // area5.innerHTML += "학생이름 : " + student.name + "<br>";
+            // area5.innerHTML += "국어점수 : " + student.kor + "<br>";
+            // area5.innerHTML += "수학점수 : " + student.math + "<br>";
+            // area5.innerHTML += "영어점수 : " + student.eng + "<br>";
+            // area5.innerHTML += "총점 : " + student.getSum() + "<br>";
+            // area5.innerHTML += "평균 : " + student.getAvg() + "<br>";
+
+            // *with*
+            // 근데, student 계속 쓰기 귀찮아.. 그렇다면 ??  with를 써보자
+            // with(student) {
+            //     area5.innerHTML += "학생이름 : " + name + "<br>";
+            //     area5.innerHTML += "국어점수 : " + kor + "<br>";
+            //     area5.innerHTML += "수학점수 : " + math + "<br>";
+            //     area5.innerHTML += "영어점수 : " + eng + "<br>";
+            //     area5.innerHTML += "총점 : " + getSum() + "<br>";
+            //     area5.innerHTML += "평균 : " + getAvg() + "<br>";
+            // }
+            
+        }   
+
+    </script>
 
 
 </body>

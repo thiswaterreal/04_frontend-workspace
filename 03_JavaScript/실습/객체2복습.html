@@ -23,7 +23,8 @@
     <script>
 
         function test1() {
-            
+
+            /* 방법1) 따로따로
             // 객체생성
             const student0 = {name:"문동은", java:100, oracle:90, html:90, css:60};
             const student1 = {name:"박연진", java:60, oracle:100, html:80, css:70};
@@ -33,12 +34,20 @@
             // 배열생성
             const students = [];
 
-            // 배열에 <= 객체 담기
+            // 배열에 <= 객체 담기 (push는 배열에 <= 담담)
             students.push(student0);
             students.push(student1);
             students.push(student2);
             students.push(student3);
-            //students.push("name:이수쟌");     push는 배열에 <= 담담
+            */
+
+            // 방법2) 한방에.. 배열 안에 객체 생성
+            const students = [
+                {name:"문동은", java:100, oracle:90, html:90, css:60},
+                {name:"박연진", java:60, oracle:100, html:80, css:70},
+                {name:"이사라", java:70, oracle:80, html:100, css:50},
+                {name:"전재준", java:100, oracle:60, html:80, css:50}
+            ];
 
             console.log(students);
             console.log(students[0]);
@@ -127,7 +136,7 @@
             const student1 = new Student("문동은", 100, 70, 60, 80, 90);   // 생성자 함수를 통해서 만들었음 (27번째줄과 비교해보셈)
             const student2 = new Student("박연진", 90, 60, 100, 70, 90); 
         
-            // 배열 생성 + 객체 담담
+            // 배열 생성 (동시에) <= 객체 담담
             const students = [student1, student2];
             // const students = [];
             // students.push(student1);
