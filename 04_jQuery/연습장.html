@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="resources/js/jquery-3.7.0.min.js"></script>
+    <style>
+        .test11 {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text"> <br>
+    <input type="number" class="test test1"> <br>
+    <input type="radio"> <br>
+    <input type="checkbox"> <br>
+    <input type="button" value="button" class="test2"> <br>
+    <input type="submit"> <br>
+
+    <script>
+
+        $(function() {
+            $("input[class]").css("background", "yellow");
+            $("input[type=text]").val("뿌뿌뿌")
+       
+            $(":submit").click(function() {
+                alert("")
+            })
+       
+        })
+
+    </script>
+
+
+</body>
+</html>
