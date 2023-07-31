@@ -8,57 +8,57 @@
         .wrap {
             background-color: rgb(216, 233, 255);
             border: 2px solid rgb(142, 190, 253);
-            width: 600px;
-            height: 420px;
+            width: 750px;
+            height: 520px;
         }
         
         .table {
-            font-size: 12px;
+            font-size: 15px;
             font-weight: bold;
             margin-left: 10px;
             margin-top: 15px;
         }
         .under {
-            border-bottom: 1px dashed black;
-            width: 210px;
+            border-bottom: 2px dashed black;
+            width: 250px;
         }
 
         .under1{
-            border-bottom: 1px dashed black;
-            width: 95px;
+            border-bottom: 2px dashed black;
+            width: 44%
         }
         .under2{
-            border-bottom: 1px dashed black;
-            width: 95px;
+            border-bottom: 2px dashed black;
+            width: 44%
         }
 
         #form {
             margin: auto;
             margin-top: 30px;
-            /* padding-top: 40px;
-            padding-left: 10px; */
             background-color: rgb(247, 247, 247);
             border: 2px solid rgb(221, 221, 221);
-            width: 320px;
-            height: 350px;
+            width: 400px;
+            height: 450px;
         }
 
         #form>* {
             width: 100%;
         }
+
         #form-input {
             height: 80%;
             
         }
+
         #form-btn {
             height: 20%;
-            padding-top: 5px;
+            padding-top: 25px;
             padding-left: 10px;
         }
 
-
         #form td {
-            height: 30px;
+            width: 100px;
+            height: 50px;
         }
         
         input {
@@ -67,15 +67,13 @@
         }
 
         #submitBtn {
-            /* margin-top: 40px;
-            margin-left: 5px; */
             background-color: lightgreen;
             border: none;
-            width: 300px;
+            width: 380px;
             height: 40px;
             font-weight: bold;
+            font-size: 15px;
             cursor: pointer;
-            
         }
         
         #notice, #warn1, #warn2, #warn3 {
@@ -160,21 +158,29 @@
             const userId = document.getElementById("userId");
             if(userId.value == "") {
                 document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
+            }else {
+                document.getElementById("warn1").innerHTML = "";
             }
         }
 
         function p2() {
             const userPwd = document.getElementById("userPwd");
             if(userPwd.value == "") {
+                document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
                 document.getElementById("warn2").innerHTML = "필수 입력 항목입니다.";
+            }else {
+                document.getElementById("warn2").innerHTML = "";
             }
         }
 
         function e() {
             const checkPwd = document.getElementById("checkPwd");
             if(checkPwd.value == "") {
-                const warn3 = document.getElementById("warn3");
-                warn3.innerHTML = "필수 입력 항목 입니다.";
+                document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
+                document.getElementById("warn2").innerHTML = "필수 입력 항목입니다.";
+                document.getElementById("warn3").innerHTML = "필수 입력 항목 입니다.";
+            }else {
+                document.getElementById("warn3").innerHTML = "";
             }
         }
     </script>
