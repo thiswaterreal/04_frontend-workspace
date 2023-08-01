@@ -62,6 +62,7 @@
 
             // on 메소드를 통해 이벤트 연결시
             // 한 요소에 다중으로 이벤트 걸기 가능
+            // $("#test2").on({"mouseenter":function(){}, "mouseout":function(){}, "click":function(){}})
             $("#test2").on({"mouseenter":function(){
                 $(this).css("backgroundColor", "yellowgreen").text("마우스 올라감")
             }, "mouseout":function(){

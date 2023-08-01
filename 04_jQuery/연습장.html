@@ -12,63 +12,48 @@
     </style>
 </head>
 <body>
-    
-    <input type="text"> <br>
-    <input type="number" class="test test1"> <br>
-    <input type="radio"> <br>
-    <input type="checkbox"> <br>
-    <input type="button" value="button" class="test2"> <br>
-    <input type="submit"> <br>
 
     <script>
 
         $(function() {
-            $("input[class]").css("background", "yellow");
-            $("input[type=text]").val("뿌뿌뿌")
-       
-            $(":submit").click(function() {
-                alert("")
-            })
-       
-        })
 
-
-        $(function() {
-            // 배열
+            // ** 배열
             const arr = ["텔","레","토","비"]
-            
+            // 1. 자바스크립트
             for(let i in arr) {
                 console.log(arr[i]);
             }
-
+            // 2. jQuery 방법(1)
             $.each(arr, function(index, value) {
                 console.log(index, value)
             })
-
+            // 3. jQuery 방법(2)
             $(arr).each(function(index, value) {
                 console.log(index, value)
             })
        
-            // 객체
+
+            // ** 객체
             const student = {
                 name : "차은우",
                 age : 20,
                 address : "서울"
             }
-
+            // 1. 자바스크립트
             for(let k in student) {
                 console.log(k + " : " + student[k]);
             }
-
+            // 2. jQuery 방법(1)
             $.each(student, function(key, value) {
                 console.log(key + " : " + value);
             })
-
+            // 3. jQuery 방법(2)
             // $(student).each(function(key, value) {
             //     console.log(key + " : " + value);
             // })
             
 
+            // ** 객체 배열
             $("#btn").click(function() {
 
                 const students = [{name:"문동은", age:20, address:"서울"},
@@ -89,21 +74,21 @@
 
     </script>
 
-<button id="btn">학생조회</button>  <br><br>
 
-<table id="area1" border="1">
-    <thead>
-        <tr>
-            <th>이름</th>
-            <th>나이</th>
-            <th>주소</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!--공간만들어둠-->
-    </tbody>
-
-</table>
+    <button id="btn">학생조회</button>
+    <br><br>
+    <table ble id="area1" border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--공간만들어둠-->
+        </tbody>
+    </table>
 
 
 </body>
