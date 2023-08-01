@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UI구현</title>
+    <script src="resources/js/jquery-3.7.0.min.js"></script>
     <style>
         .wrap {
             background-color: rgb(216, 233, 255);
@@ -81,9 +82,6 @@
             font-size: 10px;
             margin-top: 5px;
         }
-
-        
-
     </style>
 
 </head>
@@ -92,21 +90,20 @@
 
     <div class="wrap">
 
-        
         <form id="form">
             <div id="form-input">
                 <table class="table">
                     <tr>
                         <td>아이디</td>
                         <td>
-                            <input type="text" id="userId"  class="clear under">
+                            <input onclick="ano();" type="text" id="userId"  class="under" required>
                             <div id="warn1"></div>
                         </td>
                     </tr>
                     <tr>
                         <td>패스워드</td>
                         <td>
-                            <input onclick="p1();" type="password" id="userPwd" class="clear under">
+                            <input onclick="p1();" type="password" id="userPwd" class="under" required>
                             <div id="notice"></div>
                             <div id="warn2"></div>
                         </td>
@@ -114,95 +111,111 @@
                     <tr>
                         <td>패스워드 확인</td>
                         <td>
-                            <input onclick="p2();" type="password" id="checkPwd" class="clear under">
+                            <input onclick="p2();" type="password" id="checkPwd" class="under" required>
                             <div id="warn3"></div>
                         </td>
                     </tr>
                     <tr>
                         <td>이메일</td>
                         <td>
-                            <input onclick="e();" type="text" id="email1" class="clear under1">@
-                            <input type="text" id="email2" class="clear under2">
+                            <input onclick="e();" type="text" id="email1" class="under1">@
+                            <input onclick="e();" type="text" id="email2" class="under2" >
                         </td>
                     </tr>
                     <tr>
                         <td>주소</td>
                         <td>
-                            <input type="text" id="address" class="clear under">
+                            <input type="text" id="address" class="under" onclick="ano();">
                         </td>
                     </tr>
                     <tr>
                         <td>&nbsp</td>
                         <td>
-                            <input type="text" id="userId" class="clear under">
+                            <input type="text" id="blank" class="under" onclick="ano();">
                         </td>
                     </tr>
                 </table>
             </div>
+
             <div id="form-btn">
                 <input type="submit" value="가 입" id="submitBtn">
             </div>
         </form>
 
-
     </div>
 
     <script>
-        
-        function p1() {
-            let clear = document.getElementsByClassName("clear");
-            for(let i in clear) {
-                clear[i].innerHTML = "";
-            }
 
-            const notice = document.getElementById("notice");
-            notice.innerHTML = "영문자 대/소문자 특수문자, 숫자 포함 8~32자";
-        
-            //---------------------------------------------------------------------
+        $(function() {
 
-            const userId = document.getElementById("userId");
-            if(userId.value == "") {
-                document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
-            }else {
-                document.getElementById("warn1").innerHTML = "";
-            }
-        }
+            $("#userPwd").click(function() {
+                $("#warn2").html("영문자 대/소문자 특수문자, 숫자 포함 8~32자")
+            
+                if($("#userId").val()=="") {
+                    $("#warn1").html("필수 입력 항목입니다.");
+                }else {
+                    $("#warn1").html("");
+                }
+                if($("#userPwd").val()!="") {
+                    $("#warn2").html("");
+                }
+                if($("#checkPwd").val()!="") {
+                    $("#warn3").html("");
+                }
+            })
 
-        function p2() {
-            let clear = document.getElementsByClassName("clear");
-            for(let i in clear) {
-                clear[i].innerHTML = "";
-            }
+            $("#checkPwd").click(function() {
+                if($("#userPwd").val()=="") {
+                    $("#warn1").html("필수 입력 항목입니다.");
+                    $("#warn2").html("필수 입력 항목입니다.");
+                }else {
+                    $("#warn2").html("");
+                }
+                if($("#userId").val()!="") {
+                    $("#warn1").html("");
+                }
+                if($("#checkPwd").val()!="") {
+                    $("#warn3").html("");
+                }
+            })
 
-            const userPwd = document.getElementById("userPwd");
-            if(userPwd.value == "") {
-                document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
-                document.getElementById("warn2").innerHTML = "필수 입력 항목입니다.";
-            }else {
-                document.getElementById("warn2").innerHTML = "";
-            }
-        }
+            $("#email1, #email2").click(function() {
+                if($("#checkPwd").val()=="") {
+                    $("#warn1").html("필수 입력 항목입니다.");
+                    $("#warn2").html("필수 입력 항목입니다.");
+                    $("#warn3").html("필수 입력 항목입니다.");
+                }else {
+                    $("#warn3").html("");
+                }
+                if($("#userId").val()!="") {
+                    $("#warn1").html("");
+                }
+                if($("#userPwd").val()!="") {
+                    $("#warn2").html("");
+                }
+            })
 
-        function e() {
-            let clear = document.getElementsByClassName("clear");
-            for(let i in clear) {
-                clear[i].innerHTML = "";
-            }
+            $("#userId, #address, #blank").click(function() {
+                if($("#userId").val()=="") {
+                    $("#warn1").html("필수 입력 항목입니다.");
+                }else {
+                    $("#warn1").html("");
+                }
+                if($("#userPwd").val()=="") {
+                    $("#warn2").html("필수 입력 항목입니다.");
+                }else {
+                    $("#warn2").html("");
+                }
+                if($("#checkPwd").val()=="") {
+                    $("#warn3").html("필수 입력 항목입니다.");
+                }else {
+                    $("#warn3").html("");
+                }
+            })
 
-            const checkPwd = document.getElementById("checkPwd");
-            if(checkPwd.value == "") {
-                document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
-                document.getElementById("warn2").innerHTML = "필수 입력 항목입니다.";
-                document.getElementById("warn3").innerHTML = "필수 입력 항목입니다.";
-            }else {
-                document.getElementById("warn3").innerHTML = "";
-            }
-        }
+        })
+
     </script>
-
-
-
-
 
 </body>
 </html>

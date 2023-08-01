@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UI구현</title>
     <style>
         .wrap {
             background-color: rgb(216, 233, 255);
@@ -81,9 +81,6 @@
             font-size: 10px;
             margin-top: 5px;
         }
-
-        
-
     </style>
 
 </head>
@@ -92,21 +89,20 @@
 
     <div class="wrap">
 
-        
         <form id="form">
             <div id="form-input">
                 <table class="table">
                     <tr>
                         <td>아이디</td>
                         <td>
-                            <input type="text" id="userId"  class="under">
+                            <input onclick="ano();" type="text" id="userId"  class="under" required>
                             <div id="warn1"></div>
                         </td>
                     </tr>
                     <tr>
                         <td>패스워드</td>
                         <td>
-                            <input onclick="p1();" type="password" id="userPwd" class="under">
+                            <input onclick="p1();" type="password" id="userPwd" class="under" required>
                             <div id="notice"></div>
                             <div id="warn2"></div>
                         </td>
@@ -114,7 +110,7 @@
                     <tr>
                         <td>패스워드 확인</td>
                         <td>
-                            <input onclick="p2();" type="password" id="checkPwd" class="under">
+                            <input onclick="p2();" type="password" id="checkPwd" class="under" required>
                             <div id="warn3"></div>
                         </td>
                     </tr>
@@ -122,32 +118,36 @@
                         <td>이메일</td>
                         <td>
                             <input onclick="e();" type="text" id="email1" class="under1">@
-                            <input type="text" id="email2" class="under2">
+                            <input onclick="e();" type="text" id="email2" class="under2">
                         </td>
                     </tr>
                     <tr>
                         <td>주소</td>
                         <td>
-                            <input type="text" id="address" class="under">
+                            <input type="text" id="address" class="under" onclick="ano();">
                         </td>
                     </tr>
                     <tr>
                         <td>&nbsp</td>
                         <td>
-                            <input type="text" id="userId" class="under">
+                            <input type="text" id="blank" class="under" onclick="ano();">
                         </td>
                     </tr>
                 </table>
             </div>
+
             <div id="form-btn">
                 <input type="submit" value="가 입" id="submitBtn">
             </div>
         </form>
 
-
     </div>
 
     <script>
+
+        let userId = document.getElementById("userId");
+        let userPwd = document.getElementById("userPwd");
+        let checkPwd = document.getElementById("checkPwd");
 
         function p1() {
             const notice = document.getElementById("notice");
@@ -155,29 +155,62 @@
         
             //---------------------------------------------------------------------
 
-            const userId = document.getElementById("userId");
             if(userId.value == "") {
                 document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
             }else {
                 document.getElementById("warn1").innerHTML = "";
             }
+            if(userPwd.value != "") {
+                document.getElementById("warn2").innerHTML = "";
+            }
+            if(checkPwd.value != "") {
+                document.getElementById("warn3").innerHTML = "";
+            }
         }
 
         function p2() {
-            const userPwd = document.getElementById("userPwd");
             if(userPwd.value == "") {
                 document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
                 document.getElementById("warn2").innerHTML = "필수 입력 항목입니다.";
             }else {
                 document.getElementById("warn2").innerHTML = "";
             }
+            if(userId.value != "") {
+                document.getElementById("warn1").innerHTML = "";
+            }
+            if(checkPwd.value != "") {
+                document.getElementById("warn3").innerHTML = "";
+            }
         }
 
         function e() {
-            const checkPwd = document.getElementById("checkPwd");
             if(checkPwd.value == "") {
                 document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
                 document.getElementById("warn2").innerHTML = "필수 입력 항목입니다.";
+                document.getElementById("warn3").innerHTML = "필수 입력 항목입니다.";
+            }else {
+                document.getElementById("warn3").innerHTML = "";
+            }
+            if(userId.value != "") {
+                document.getElementById("warn1").innerHTML = "";
+            }
+            if(userPwd.value != "") {
+                document.getElementById("warn2").innerHTML = "";
+            }
+        }
+
+        function ano() {
+            if(userId.value == "") {
+                document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
+            }else {
+                document.getElementById("warn1").innerHTML = "";
+            }
+            if(userPwd.value == "") {
+                document.getElementById("warn2").innerHTML = "필수 입력 항목입니다.";
+            }else {
+                document.getElementById("warn2").innerHTML = "";
+            }
+            if(checkPwd.value == "") {
                 document.getElementById("warn3").innerHTML = "필수 입력 항목입니다.";
             }else {
                 document.getElementById("warn3").innerHTML = "";

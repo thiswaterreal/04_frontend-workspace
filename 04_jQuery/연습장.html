@@ -32,7 +32,78 @@
        
         })
 
+
+        $(function() {
+            // 배열
+            const arr = ["텔","레","토","비"]
+            
+            for(let i in arr) {
+                console.log(arr[i]);
+            }
+
+            $.each(arr, function(index, value) {
+                console.log(index, value)
+            })
+
+            $(arr).each(function(index, value) {
+                console.log(index, value)
+            })
+       
+            // 객체
+            const student = {
+                name : "차은우",
+                age : 20,
+                address : "서울"
+            }
+
+            for(let k in student) {
+                console.log(k + " : " + student[k]);
+            }
+
+            $.each(student, function(key, value) {
+                console.log(key + " : " + value);
+            })
+
+            // $(student).each(function(key, value) {
+            //     console.log(key + " : " + value);
+            // })
+            
+
+            $("#btn").click(function() {
+
+                const students = [{name:"문동은", age:20, address:"서울"},
+                                  {name:"박연진", age:30, address:"부산"},
+                                  {name:"전재준", age:20, address:"광주"}];
+
+                let result = "";
+                $.each(students, function(index, obj){
+                    result += "<tr>"
+                            + "<td>" + obj.name + "</td>"
+                })
+
+
+            })
+       
+       
+        })
+
     </script>
+
+<button id="btn">학생조회</button>  <br><br>
+
+<table id="area1" border="1">
+    <thead>
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--공간만들어둠-->
+    </tbody>
+
+</table>
 
 
 </body>
