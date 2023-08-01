@@ -99,14 +99,14 @@
                     <tr>
                         <td>아이디</td>
                         <td>
-                            <input type="text" id="userId"  class="under">
+                            <input type="text" id="userId"  class="clear under">
                             <div id="warn1"></div>
                         </td>
                     </tr>
                     <tr>
                         <td>패스워드</td>
                         <td>
-                            <input onclick="p1();" type="password" id="userPwd" class="under">
+                            <input onclick="p1();" type="password" id="userPwd" class="clear under">
                             <div id="notice"></div>
                             <div id="warn2"></div>
                         </td>
@@ -114,27 +114,27 @@
                     <tr>
                         <td>패스워드 확인</td>
                         <td>
-                            <input onclick="p2();" type="password" id="checkPwd" class="under">
+                            <input onclick="p2();" type="password" id="checkPwd" class="clear under">
                             <div id="warn3"></div>
                         </td>
                     </tr>
                     <tr>
                         <td>이메일</td>
                         <td>
-                            <input onclick="e();" type="text" id="email1" class="under1">@
-                            <input type="text" id="email2" class="under2">
+                            <input onclick="e();" type="text" id="email1" class="clear under1">@
+                            <input type="text" id="email2" class="clear under2">
                         </td>
                     </tr>
                     <tr>
                         <td>주소</td>
                         <td>
-                            <input type="text" id="address" class="under">
+                            <input type="text" id="address" class="clear under">
                         </td>
                     </tr>
                     <tr>
                         <td>&nbsp</td>
                         <td>
-                            <input type="text" id="userId" class="under">
+                            <input type="text" id="userId" class="clear under">
                         </td>
                     </tr>
                 </table>
@@ -148,8 +148,13 @@
     </div>
 
     <script>
-
+        
         function p1() {
+            let clear = document.getElementsByClassName("clear");
+            for(let i in clear) {
+                clear[i].innerHTML = "";
+            }
+
             const notice = document.getElementById("notice");
             notice.innerHTML = "영문자 대/소문자 특수문자, 숫자 포함 8~32자";
         
@@ -164,6 +169,11 @@
         }
 
         function p2() {
+            let clear = document.getElementsByClassName("clear");
+            for(let i in clear) {
+                clear[i].innerHTML = "";
+            }
+
             const userPwd = document.getElementById("userPwd");
             if(userPwd.value == "") {
                 document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";
@@ -174,6 +184,11 @@
         }
 
         function e() {
+            let clear = document.getElementsByClassName("clear");
+            for(let i in clear) {
+                clear[i].innerHTML = "";
+            }
+
             const checkPwd = document.getElementById("checkPwd");
             if(checkPwd.value == "") {
                 document.getElementById("warn1").innerHTML = "필수 입력 항목입니다.";

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        $(function() {
+
+            $("p, h2, li, span")
+            $("#id")
+            $(".class")
+            $("input[class]")
+            $("input[type=text]")
+            $(":text")
+            $(this)
+
+            // (+)
+            $("option:selected")
+            $("button:enabled")
+            $("button:disabled")
+            $("tr:first")
+            $("tr:last")
+            $("tr:even")
+            $("tr:odd")
+
+
+
+
+
+
+            .css("", "")
+            .css({width:"100px", height:"100px"})
+            .val("어쩌구")
+            .attr("checked", true)
+            .html()
+            .text()
+            .eq(원하는인덱스수)
+            // (+)
+            .addClass("")
+            .removeClass("")
+            .prop("checked")    // 내가 제시한 속성값 리턴 (true/false)
+            .first()
+            .last()
+            .filter()
+            .not()
+            // (-----------------)
+            .parents()
+            .parents("선택자")
+            .children()
+            .children("선택자")
+            .siblings()
+            .siblings("선택자")
+
+
+
+            .이벤트명(function(){})
+            .click(function(){})
+            .hover(function(){}, function(){})
+            .change(function(){})
+
+
+
+            $(":submit").click(function() {
+                alert($(":text").eq(1).val());
+            })
+
+            $(":submit").hover(function() {
+                $(this).addClass("test11");
+            }, function() {
+                $(this).removeClass("test11");
+            });
+
+            $(":checkbox").change(function() {
+                console.log($(this).prop("checked"));   // true | false
+                if($(this).prop("checked")) {
+                    $(this).css("","");
+                }else {
+                    $(this).css("","");
+                }
+            })
+
+
+
+
+
+        })
+
+    </script>
+
+
+
+
+
+</body>
+</html>

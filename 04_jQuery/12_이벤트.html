@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src="resources/js/jquery-3.7.0.min.js"></script>
+
+</head>
+<body>
+
+    <h1>이벤트 핸들러(이벤트 발생시 실행할 function) 연결 방법</h1>
+
+    <h3>* 방법1. 이벤트 메소드를 통한 연결</h3>
+    <pre>
+        $("선택자").이벤트메소드(function() {
+            선택자에 해당 이벤트 메소드 발생했을 때 실행할 내용;
+        })
+    </pre>
+
+    <h4 id="test1">클릭해보세요</h4>
+
+    <script>
+
+        $(function() {
+            $("#test1").click(function() {      // 클릭
+                $(this).html("클릭되었습니다!!");
+            })
+
+            $("#test1").dblclick(function() {   // 더블클릭
+                $(this).css("color" ,"red");
+            })
+
+            $("#test1").click(function() {      // 클릭 (기존작성 + 나중작성 모두 실행됨)
+                $(this).css("backgroundColor", "pink");
+            })
+        })
+
+    </script>
+
+    <br><br>
+
+    <h3>* 방법2. on메소드를 이용한 방법</h3>
+    <pre>
+        $("선택자").on("이벤트명", function() {
+            해당 선택자에 이벤트 발생시 실행할 내용;
+        })
+    </pre>
+
+    <h4 id="test2">마우스 클릭 및 올려보세요</h4>
+
+    <script>
+        $(function() {
+            /*
+            $("#test2").on("mouseenter", function() {
+                
+            })
+            $("#test2").on("mouseout", function() {
+
+            })
+            */
+
+            // on 메소드를 통해 이벤트 연결시
+            // 한 요소에 다중으로 이벤트 걸기 가능
+            $("#test2").on({"mouseenter":function(){
+                $(this).css("backgroundColor", "yellowgreen").text("마우스 올라감")
+            }, "mouseout":function(){
+                $(this).css("backgroundColor", "yellow").text("마우스 빠져나감")
+            }, "click":function(){
+                // 기존에 잘 수행되던 mouseenter, mouseout 이벤트 핸들러 제거
+                // * off 메소드 : 이벤트 핸들러 제거 후 해당 요소 반환
+                $(this).off("mouseenter").off("mouseout").css("backgroundColor", "orange").text("이벤트가 제거됨")   
+            }
+            });
+        })
+    </script>
+
+    <br><br>
+
+    <h3>* 방법3. </h3>
+
+    <pre>
+        $("상위요소선택자").on("이벤트명", "하위요소선택자(이벤트를걸고자하는요소)", function() {
+            // 이걸 꼭 써야하는 경우가 생김
+            선택된 상위요소 안에 존재하는 하위요소에 해당 이벤트 발생시 실행할 내용;
+        })
+    </pre>
+
+    <div id="wrap">
+        <h4>h4 클릭해보시오</h4>
+        <h5>h5 클릭해보시오</h5>
+    </div>
+    <h5>div 바깥쪽 h5</h5>
+
+    <script>
+
+        $(function() {
+            // $("#wrap h4", "#wrap h5")
+
+            // <h4>h4 클릭해보시오</h4>
+            // <h5>h5 클릭해보시오</h5>
+            $("#wrap").on("click", "h4, h5", function() {
+                $(this).html("안녕");
+            })
+
+            //<h5>div 바깥쪽 h5</h5>
+            $(document).on("click", "h5", function() {
+                $(this).css("color", "pink");
+            })
+        })
+
+    </script>
+
+    <hr>
+
+    <!-- 무조건 3번 방법으로 해야하는 경우 -->
+
+    <h3>* 동적으로 만들어진 요소에도 동일한 이벤트를 적용시키고자 한다면 반드시!! 방법3으로 해야함!!</h3>
+     <!-- 동적으로 만들어진 요소 : 처음에 문서로딩시에는 없다가, 이벤트에 의해서 나중에 새로이 만들어진 요소 -->
+
+    <div id="wrap2" style="border: 1px solid red;">
+        <h6>기존에 존재하는 요소</h6>
+        <!-- 마지막 존재하는 h6 클릭시 여기에다가 붙여줄것임 -->
+    </div>
+
+    <script>
+
+        $(function() {
+
+            // 방법1. 이벤트 메소드 <= 동적으로 만들어진 요소에는 이벤트 적용 안됨
+            /*
+            $("#wrap2>h6").click(function() {
+                $("#wrap2").append("<h6>클릭으로 인해 동적으로 만들어진 요소</h6>")
+            })
+            */
+            // 안됨.. 모든 요소가 그려진 다음이 이 펑션이 실행됨
+            // 저 함수가 실행될 때 해당 선택자에 만족하는 요소는 기존것밖에 없음
+            // 따라서, 새로 만들어진건(동적으로 만들어진 요소) 이벤트 연결이 안됨
+
+
+            // 방법2. on 메소드 <= 동적으로 만들어진 요소에는 이벤트 적용 안됨
+            /*
+            $("#wrap2>h6").on("click", function() {
+                $("#wrap2").append("<h6>클릭으로 인해 동적으로 만들어진 요소</h6>")
+            })
+            */
+
+            
+            // 방법3. on 상위요소 메소드
+            $("#wrap2").on("click", "h6", function() {
+                 $("#wrap2").append("<h6>클릭으로 인해 동적으로 만들어진 요소</h6>")
+            })
+
+        })
+
+    </script>
+
+    <hr>
+
+    <h3>* 일회성 이벤트 (one 메소드)</h3>
+
+    <h6 id="test3">딱 한번만 실행될것임</h6>
+
+    <script>
+
+        $(function() {
+            $("#test3").one("click", function() {
+                alert("처음이자 마지막 이벤트 실행");
+            })
+        })
+
+    </script>
+
+    <hr>
+
+    <h3>* 키보드 관련 이벤트</h3>
+    <p>
+        - keydown | keypress : 키가 눌러질 때 발생하는 이벤트 <br>
+            > keydown   : 키보드의 모든 키가 눌러질 때 발생됨 <br>
+            > keypress  : 키보드의 펑션키, 기능키, 한글 제외한 나머지 키가 눌러질때 발생됨 <br>
+    
+        - keyup : 키가 떼어질 때 발생하는 이벤트 <br>
+    </p>
+
+    <input type="text" id="test4">
+
+    <script>
+        $(function() {
+            $("#test4"). /*keydown*/ /*keypress*/ keyup(function() {
+                // console.log("눌러졌음~");
+                console.log($(this).val());
+                console.log($(this).val().length);
+            })
+        })
+    </script>
+
+    <h3>* 동적으로 글자 수 세기</h3>
+
+    150자 내외로 작성하시오 <br>
+
+    <textarea style="resize: none;" id="content" cols="30" rows="10"></textarea>
+    <br><br>
+
+    <!-- 0/150(자) -->
+    <!-- 바뀔요소만 감싸고 고정될 애는 빼둠 -->
+    <span id="count">0</span>/150(자)
+
+    <script>
+        $(function() {
+            $("#content").keyup(function() {
+                let length = $(this).val().length;
+                $("#count").text(length);
+            })
+        })
+    </script>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시각적인효과메소드1</title>
+    <script src="resources/js/jquery-3.7.0.min.js"></script>
+
+</head>
+<body>
+    
+    <h1>시각적인 효과 (Effect)</h1>
+    <p>
+        페이지 내에 애니메이션 효과를 주기 위해 사용되는 메소드 집합
+    </p>
+
+    <h3>* show(), hide(), toggle()</h3>
+    <p>선택된 요소가 점점 커지면서 보여지고, 점점 작아지면서 사라지게 하는 메소드</p>
+
+    <button id="hide">숨기기</button>
+    <button id="show">보여주기</button>
+    <button id="toggle">토글</button>
+
+    <br><br>
+
+    <!-- <img src="../02_CSS3/resources/image/city1.PNG"> -->
+    <img id="bbang" src="https://item.kakaocdn.net/do/7ba99d330ef1281799fcc5932d8dc37a8f324a0b9c48f77dbce3a43bd11ce785">
+
+    <script>
+        $(function() {
+            $("#hide").click(function() {
+                $("#bbang").hide(1000);
+            })
+            $("#show").click(function() {
+                $("#bbang").show(1000);
+            })
+            $("#toggle").click(function() {
+                $("#bbang").toggle(500);
+            })
+        })
+    </script>
+
+</body>
+</html>
