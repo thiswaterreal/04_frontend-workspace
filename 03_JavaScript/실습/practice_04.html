@@ -64,11 +64,20 @@
             const food = document.getElementById("food").innerHTML;
             const arr = food.split(",");
 
+            console.log(arr);
+
+            // 방법1
+            for(let i in arr) {
+                area2.innerHTML += Number(i)+1 + "." + arr[i] + "<br>";
+            }
+            // 방법2
+            /*
             area2.innerHTML += "1." + arr.slice(0,1) + "<br>";
             area2.innerHTML += "2." + arr.slice(1,2) + "<br>";
             area2.innerHTML += "3." + arr.slice(2,3) + "<br>";
             area2.innerHTML += "4." + arr.slice(3,4) + "<br>";
             area2.innerHTML += "5." + arr.slice(4,5) + "<br>";
+            */
         }
 
     </script>

@@ -46,11 +46,20 @@
             // 2. jQuery 방법(1)
             $.each(student, function(key, value) {
                 console.log(key + " : " + value);
+                // console.log(key);
+                // console.log(value);
             })
             // 3. jQuery 방법(2)
-            // $(student).each(function(key, value) {
-            //     console.log(key + " : " + value);
-            // })
+            $(student).each(function(key, value) {
+                // console.log(key + " : " + value);
+                console.log(key + " : " + value.name);
+                console.log(key + " : " + value.age);
+                console.log(key + " : " + value.address);
+                // console.log(key, value);
+                // console.log(value);
+                
+
+            })
             
 
             // ** 객체 배열
@@ -60,15 +69,28 @@
                                   {name:"박연진", age:30, address:"부산"},
                                   {name:"전재준", age:20, address:"광주"}];
 
-                let result = "";
-                $.each(students, function(index, obj){
+                                  let result = "";
+                /*
+                $.each(students, function(index, obj) {      // (0, {name:"문동은", age:20, address:"서울"})
                     result += "<tr>"
                             + "<td>" + obj.name + "</td>"
-                })
+                            + "<td>" + obj.age + "</td>"
+                            + "<td>" + obj.address + "</td>"
+                            + "</tr>";
+                });
+                */
+                $(students).each(function(index, obj) {      // (0, {name:"문동은", age:20, address:"서울"})
+                    result += "<tr>"
+                            + "<td>" + obj.name + "</td>"
+                            + "<td>" + obj.age + "</td>"
+                            + "<td>" + obj.address + "</td>"
+                            + "</tr>";
+                });
 
+                // console.log(result);
+                $("#area1 tbody").html(result);
 
             })
-       
        
         })
 

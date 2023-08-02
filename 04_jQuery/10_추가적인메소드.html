@@ -106,7 +106,7 @@
                 console.log("속성명 : " + key + ", 속성값 : " + value);
             })
             
-            // 2) each 메소드 방법 2 ?????
+            // 3) each 메소드 방법 2 ?????
             // $(student).each(function(key, value) {
             //     console.log(key + " : " + value);
             // })
@@ -119,7 +119,16 @@
                                   {name:"전재준", age:20, address:"광주"}];
                 
                 let result = "";
+                /*
                 $.each(students, function(index, obj) {      // (0, {name:"문동은", age:20, address:"서울"})
+                    result += "<tr>"
+                            + "<td>" + obj.name + "</td>"
+                            + "<td>" + obj.age + "</td>"
+                            + "<td>" + obj.address + "</td>"
+                            + "</tr>";
+                });
+                */
+                $(students).each(function(index, obj) {      // (0, {name:"문동은", age:20, address:"서울"})
                     result += "<tr>"
                             + "<td>" + obj.name + "</td>"
                             + "<td>" + obj.age + "</td>"
