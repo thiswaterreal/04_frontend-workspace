@@ -22,8 +22,13 @@
             const area1 = document.getElementById("area1");
 
             const arr = ["사과", "딸기", "바나나", "복숭아", "파인애플"];
-            const search = prompt("무슨 과일 찾누");
+            // area1.innerHTML = arr;   // 사과,딸기,바나나,복숭아,파인애플 들어감
+            // area1.innerHTML = arr[2];   // 바나나
+            // for(let i in arr) {
+            //     console.log(arr[i]);
+            // }
 
+            const search = prompt("무슨 과일 찾누");
             area1.innerHTML = "찾고자하는 " + search + "는 " + arr.indexOf(search) + "번째에 있음요";
         }
 

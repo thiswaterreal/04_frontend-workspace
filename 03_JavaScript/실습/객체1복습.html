@@ -107,18 +107,22 @@
 
 
             // * 객체 반복문
+            // const game = {title:"오버워치", price:35000, language:"한국어 지원", company:"블리자드"};
             const game = {
                 title:"오버워치",
                 price:35000,
                 language:"한국어 지원",
                 company:"블리자드"
             };
-            // const game = {title:"오버워치", price:35000, language:"한국어 지원", company:"블리자드"};
-
+            // console.log(game);              // Object 찍힘 > 안에 내용물 있음
+            // console.log(game["title"]);     // 오버워치
+            // console.log(game.title);        // 오버워치
+            
             for(let k in game) {
                 // area3.innerHTML += k + " : " + game.k + "<br>";      // undefined
                 area3.innerHTML += k + " : " + game[k] + "<br>";
             }
+            
             //   k    in game
             // 속성명 in 객체
             // 객체 반복문 돌릴때, in 객체 제시시 '변수(k)'에 '속성명'이 담김

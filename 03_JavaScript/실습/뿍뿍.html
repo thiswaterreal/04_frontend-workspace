@@ -8,7 +8,7 @@
         .area {
             background-color: lightgrey;
             border: 1px solid black;
-            width: 500px;
+            width: 350px;
         }
 
         .small {height: 200px;}
@@ -20,30 +20,39 @@
 <body>
     
     <h3>* 배열 반복문</h3>
+    <button onclick="arrTest();">실행확인</button>
     <h3>* 객체 반복문 (대괄호 접근만 가능)</h3>
+    <button onclick="objectTest();">실행확인</button>
     <h3>* 배열 in 객체 반복문</h3>
-    <button onclick="test1();">실행확인</button>
-    <div id="area1" class="area small"></div>
+    <button onclick="allTest();">실행확인</button>
+    <br><br><br><br>
+    <p>결과 확인란 : </p>
+    <div id="area1" class="area big"></div>
 
     <script>
 
-        function test1() {
-            const area1 = document.getElementById("area1");
+        const area1 = document.getElementById("area1"); // 전역
 
 
-
-            // **************** 배열 반복문 ****************
-            const arr = ["문동은",10, true];
-
-            for(let i in arr) { // i=0, i=1, ...
+        // **************** 배열 반복문 ****************
+        function arrTest() {
+    
+            const arr = ["사과", "딸기", "바나나", "복숭아", "파인애플"];
+            // area1.innerHTML = arr;   // 사과,딸기,바나나,복숭아,파인애플 들어감
+            // area1.innerHTML = arr[2];   // 바나나
+            for(let i in arr) {
                 area1.innerHTML += arr[i] + "<br>";
             }
     
-            area1.innerHTML += "<br>";
+            // const search = prompt("무슨 과일 찾누");
+            // area1.innerHTML = "찾고자하는 " + search + "는 " + arr.indexOf(search) + "번째에 있음요";
+
+        }
 
 
-
-            // **************** 객체 반복문 ***************
+        // **************** 객체 반복문 ***************
+        function objectTest() {
+            
             const game = {title:"오버워치", price:35000, language:"한국어 지원", company:"블리자드"};
             /*
             const game = {
@@ -53,19 +62,34 @@
                 company:"블리자드"
             };
             */
-
+    
+            console.log(game);                      // Object           찍힘 ('>' 누르면 담긴것들 있음)
+            area1.innerHTML += game + "<br><br>";   // [object Object]  출력
+    
+            // '속성명' 접근하기
+            for(let s in game) {
+                area1.innerHTML += s + "<br>";
+            }
+            // '속성값' 접근하기
+            area1.innerHTML += game["title"] + "<br>";      // 오버워치
+            area1.innerHTML += game.title + "<br><br>";     // 오버워치
+    
+            // '속성명 : 속성값' 출력하기
             for(let k in game) {
                 area1.innerHTML += k + " : " + game[k] + "<br>";
+                // area1.innerHTML += k + " : " + game.k + "<br>";  // 불가능. why? game 객체에 key라는 속성을 찾고 있어서 안됨 
             }
             //   k    in game
             // 속성명 in 객체
             // 객체 반복문 돌릴때, in 객체 제시시 '변수(k)'에 '속성명'이 담김
         
-            area1.innerHTML += "<br>";
-            
+        }
 
+
+
+        // **************** 배열 in 객체 반복문 ***************
+        function allTest() {
             
-            // **************** 배열 in 객체 반복문 ***************
             const students = [
                 {name:"문동은", java:100, oracle:90, html:90, css:60},
                 {name:"박연진", java:60, oracle:100, html:80, css:70},
@@ -74,7 +98,9 @@
             ];
 
             for(let i in students) {
-                // area1.innerHTML += students[i];   object Object 만 4번찍힘
+                // area1.innerHTML += students;    // [object Object],[object Object],[object Object],[object Object] 이게 4번 찍힘
+                // area1.innerHTML += students[i];   //[object Object] 이게 4번 찍힘
+                
                 area1.innerHTML += "name : " + students[i].name + ", ";
                 area1.innerHTML += "java : " + students[i].java + ", ";
                 area1.innerHTML += "oracle : " + students[i].oracle + ", ";
