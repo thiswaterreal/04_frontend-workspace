@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시각적인효과메소드2</title>
+    <script src="resources/js/jquery-3.7.0.min.js"></script>
+
+</head>
+<body>
+    
+    <h3>* fadeIn()과 fadeOut(), fadeToggle()</h3>
+    <p style="background-color: red; opacity: 0.5;">선택된 요소가 점점 투명해지면서 사리지고 점점 선명해지면서 보여지게 해주는 메소드</p>
+
+    <button onclick="test1();">숨기기</button>
+    <button onclick="test2();">보여주기</button>
+    <button onclick="test3();">토글</button>
+
+    <br><br>
+
+    <img id="okji" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160327_97%2Frlaehdgjs66_1459089141848gnV7N_JPEG%2FFB_IMG_1459088512114.jpg&type=sc960_832">
+
+    <script>
+
+        function test1() {
+            $("#okji").fadeOut(1000);
+        }
+
+        function test2() {
+            $("#okji").fadeIn(1000);
+        }
+
+        function test3() {
+            $("#okji").fadeToggle(500);
+        }
+        
+    </script>
+
+
+
+
+</body>
+</html>
