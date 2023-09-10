@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="resources/js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    
+    <p>Java</p>
+    <p>Oracle</p>
+    <p>HTML</p>
+
+    <h5>CSS</h5>
+    <h5>JavaScript</h5>
+    <h5 id="jj">jQuery</h5>
+
+    <script>
+        $(function(){
+
+            $("p").css("background", "blue");
+
+            const h5 = document.getElementsByTagName("h5");
+
+            for(let i=0; i<h5.length; i++) {
+                h5[i].style.color="red";
+            }
+
+            const p = document.getElementsByTagName("p");   // [p, p, p, p]  현재 p는 배열
+            
+            for(let i=0; i<p.length; i++) {
+                p[i].style.color = "pink";
+            }
+            
+
+           
+            $("#jj").click(function() {
+                alert("클릭됨");
+            })
+
+        })
+    </script>
+
+
+</body>
+</html>
